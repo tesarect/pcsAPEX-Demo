@@ -1,0 +1,65 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Create Training Job - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Create Training Job</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'training_job_list' %}" class="btn btn-secondary">Back to Training Jobs</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5>Training Job Information</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+                        <input type="text" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}" 
+                               class="form-control {% if form.name.errors %}is-invalid{% endif %}" 
+                               value="{{ form.name.value|default:'' }}" required>
+                        {% if form.name.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+                        <textarea name="{{ form.description.name }}" id="{{ form.description.id_for_label }}" 
+                                  class="form-control {% if form.description.errors %}is-invalid{% endif %}" 
+                                  rows="3">{{ form.description.value|default:'' }}</textarea>
+                        {% if form.description.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.description.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h6>Note:</h6>
+                        <p>Creating a training job will prepare the system to train a new model. You'll need to start the job after creation.</p>
+                        <p>Make sure you have labeled images before starting the training process.</p>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Create Training Job</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

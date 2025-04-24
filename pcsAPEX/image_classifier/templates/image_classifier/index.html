@@ -1,0 +1,82 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Dashboard - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Dashboard</h1>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Stats Cards -->
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Total Images</h5>
+                <p class="card-text display-4">{{ total_images }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Labeled Images</h5>
+                <p class="card-text display-4">{{ labeled_images }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Categories</h5>
+                <p class="card-text display-4">{{ categories }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Training Jobs</h5>
+                <p class="card-text display-4">{{ training_jobs }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{% url 'upload_image' %}" class="btn btn-primary">Upload Images</a>
+                    <a href="{% url 'category_create' %}" class="btn btn-success">Create Category</a>
+                    <a href="{% url 'training_job_create' %}" class="btn btn-info">Create Training Job</a>
+                    <a href="{% url 'process_new_images' %}" class="btn btn-warning">Process New Images</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>System Information</h5>
+            </div>
+            <div class="card-body">
+                <p>This is an image classification system that allows you to:</p>
+                <ul>
+                    <li>Upload and manage images</li>
+                    <li>Create and assign categories</li>
+                    <li>Train machine learning models</li>
+                    <li>Automatically classify new images</li>
+                </ul>
+                <p>Use the navigation menu to access different sections of the application.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

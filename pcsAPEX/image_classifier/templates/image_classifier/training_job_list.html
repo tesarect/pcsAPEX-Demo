@@ -1,0 +1,64 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Training Jobs - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Training Jobs</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'training_job_create' %}" class="btn btn-primary">Create Training Job</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                {% if training_jobs %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                    <th>Started</th>
+                                    <th>Completed</th>
+                                    <th>Accuracy</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for job in training_jobs %}
+                                    <tr>
+                                        <td>{{ job.name }}</td>
+                                        <td>
+                                            <span class="badge {% if job.status == 'pending' %}bg-secondary{% elif job.status == 'in_progress' %}bg-warning{% elif job.status == 'completed' %}bg-success{% else %}bg-danger{% endif %}">
+                                                {{ job.get_status_display }}
+                                            </span>
+                                        </td>
+                                        <td>{{ job.started_at|date:"M d, Y H:i" }}</td>
+                                        <td>{{ job.completed_at|date:"M d, Y H:i"|default:"--" }}</td>
+                                        <td>{{ job.accuracy|floatformat:2|default:"--" }}{% if job.accuracy %}%{% endif %}</td>
+                                        <td>
+                                            <a href="{% url 'training_job_detail' job.id %}" class="btn btn-sm btn-info">View</a>
+                                            {% if job.status == 'pending' %}
+                                                <a href="{% url 'start_training' job.id %}" class="btn btn-sm btn-primary">Start</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        No training jobs found. <a href="{% url 'training_job_create' %}">Create a training job</a> to get started.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

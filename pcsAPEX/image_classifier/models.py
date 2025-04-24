@@ -5,7 +5,8 @@ import os
 import uuid
 
 class Category(models.Model):
-    """Model for image categories/labels"""
+    """Model for image categories/labels. Stores the different classes/labels("lentils") for your images 
+    (e.g., "raw", "broken", "polished", "unpolished")"""
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -23,7 +24,7 @@ def image_upload_path(instance, filename):
     return os.path.join('uploads', filename)
 
 class Image(models.Model):
-    """Model for storing image data"""
+    """Model for storing image data. Stores information about each uploaded image and its classification status"""
     STATUS_CHOICES = [
         ('uploaded', 'Uploaded'),
         ('labeled', 'Labeled'),
@@ -42,7 +43,8 @@ class Image(models.Model):
         return f"{self.original_filename} ({self.status})"
 
 class TrainingJob(models.Model):
-    """Model for tracking training jobs"""
+    """Model for tracking training jobs. Stores information about each training job, including its status, 
+    accuracy, and completion time"""
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('in_progress', 'In Progress'),
@@ -67,7 +69,8 @@ class TrainingJob(models.Model):
         super().save(*args, **kwargs)
 
 class PredictionBatch(models.Model):
-    """Model for tracking batches of predictions"""
+    """Model for tracking batches of predictions. Stores information about each batch of predictions, 
+    including its status, completion time, and the training job it belongs to"""
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('in_progress', 'In Progress'),

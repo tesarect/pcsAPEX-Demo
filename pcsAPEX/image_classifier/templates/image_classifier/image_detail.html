@@ -1,0 +1,95 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Image Details - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Image Details</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'image_list' %}" class="btn btn-secondary">Back to Images</a>
+        {% if image.status == 'uploaded' %}
+            <a href="{% url 'label_image' image.id %}" class="btn btn-success">Label Image</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{ image.image.url }}" class="img-fluid image-detail" alt="{{ image.original_filename }}">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Image Information</h5>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Filename:</th>
+                            <td>{{ image.original_filename }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status:</th>
+                            <td>
+                                <span class="badge {% if image.status == 'uploaded' %}bg-secondary{% elif image.status == 'labeled' %}bg-success{% elif image.status == 'training' %}bg-info{% else %}bg-primary{% endif %}">
+                                    {{ image.get_status_display }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Category:</th>
+                            <td>
+                                {% if image.category %}
+                                    <span class="badge bg-dark">{{ image.category.name }}</span>
+                                {% else %}
+                                    <span class="text-muted">Not categorized</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% if image.confidence %}
+                        <tr>
+                            <th>Confidence:</th>
+                            <td>{{ image.confidence|floatformat:2 }}%</td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <th>Uploaded:</th>
+                            <td>{{ image.uploaded_at|date:"F d, Y H:i" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% if image.status == 'uploaded' %}
+        <div class="card">
+            <div class="card-header">
+                <h5>Label Image</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'label_image' image.id %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Select Category</label>
+                        <select name="category" id="category" class="form-select" required>
+                            <option value="">-- Select a category --</option>
+                            {% for category in categories %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Save Label</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Images - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Images</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'upload_image' %}" class="btn btn-primary">Upload Images</a>
+        <a href="{% url 'process_new_images' %}" class="btn btn-warning">Process New Images</a>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Filter Images</h5>
+            </div>
+            <div class="card-body">
+                <form method="get" class="row g-3">
+                    <div class="col-md-5">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" id="status" class="form-select">
+                            <option value="">All Statuses</option>
+                            <option value="uploaded" {% if request.GET.status == 'uploaded' %}selected{% endif %}>Uploaded</option>
+                            <option value="labeled" {% if request.GET.status == 'labeled' %}selected{% endif %}>Labeled</option>
+                            <option value="training" {% if request.GET.status == 'training' %}selected{% endif %}>Used for Training</option>
+                            <option value="processed" {% if request.GET.status == 'processed' %}selected{% endif %}>Processed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="category" class="form-label">Category</label>
+                        <select name="category" id="category" class="form-select">
+                            <option value="">All Categories</option>
+                            {% for category in categories %}
+                                <option value="{{ category.id }}" {% if request.GET.category == category.id|stringformat:"i" %}selected{% endif %}>{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">Filter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Grid -->
+<div class="row">
+    {% if images %}
+        {% for image in images %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="{{ image.image.url }}" class="card-img-top image-thumbnail" alt="{{ image.original_filename }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate">{{ image.original_filename }}</h5>
+                        <p class="card-text">
+                            <span class="badge {% if image.status == 'uploaded' %}bg-secondary{% elif image.status == 'labeled' %}bg-success{% elif image.status == 'training' %}bg-info{% else %}bg-primary{% endif %}">
+                                {{ image.get_status_display }}
+                            </span>
+                            {% if image.category %}
+                                <span class="badge bg-dark">{{ image.category.name }}</span>
+                            {% endif %}
+                        </p>
+                        <p class="card-text"><small class="text-muted">Uploaded: {{ image.uploaded_at|date:"M d, Y" }}</small></p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'image_detail' image.id %}" class="btn btn-sm btn-primary">View</a>
+                        {% if image.status == 'uploaded' %}
+                            <a href="{% url 'label_image' image.id %}" class="btn btn-sm btn-success">Label</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                No images found. <a href="{% url 'upload_image' %}">Upload some images</a> to get started.
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Pagination -->
+{% if is_paginated %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" aria-label="First">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+                
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.status %}&status={{ request.GET.status }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}" aria-label="Last">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

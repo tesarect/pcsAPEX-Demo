@@ -1,0 +1,63 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Label Image - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Label Image</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'image_list' %}" class="btn btn-secondary">Back to Images</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{ image.image.url }}" class="img-fluid image-detail" alt="{{ image.original_filename }}">
+                <h5 class="mt-3">{{ image.original_filename }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Assign Category</h5>
+            </div>
+            <div class="card-body">
+                {% if categories %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Select Category</label>
+                            <select name="category" id="category" class="form-select" required>
+                                <option value="">-- Select a category --</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Save Label</button>
+                    </form>
+                {% else %}
+                    <div class="alert alert-warning">
+                        No categories available. <a href="{% url 'category_create' %}">Create a category</a> first.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>Need a New Category?</h5>
+            </div>
+            <div class="card-body">
+                <p>If you need a category that doesn't exist yet, you can create one:</p>
+                <a href="{% url 'category_create' %}" class="btn btn-primary">Create New Category</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Categories - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Categories</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'category_create' %}" class="btn btn-primary">Create Category</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                {% if categories %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Created</th>
+                                    <th>Image Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for category in categories %}
+                                    <tr>
+                                        <td>{{ category.name }}</td>
+                                        <td>{{ category.description|default:"--" }}</td>
+                                        <td>{{ category.created_at|date:"M d, Y" }}</td>
+                                        <td>{{ category.images.count }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        No categories found. <a href="{% url 'category_create' %}">Create a category</a> to get started.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

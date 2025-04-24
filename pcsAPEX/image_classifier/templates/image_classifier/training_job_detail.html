@@ -1,0 +1,136 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Training Job Details - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Training Job: {{ training_job.name }}</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'training_job_list' %}" class="btn btn-secondary">Back to Training Jobs</a>
+        {% if training_job.status == 'pending' %}
+            <a href="{% url 'start_training' training_job.id %}" class="btn btn-primary">Start Training</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Job Information</h5>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Name:</th>
+                            <td>{{ training_job.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description:</th>
+                            <td>{{ training_job.description|default:"--" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status:</th>
+                            <td>
+                                <span class="badge {% if training_job.status == 'pending' %}bg-secondary{% elif training_job.status == 'in_progress' %}bg-warning{% elif training_job.status == 'completed' %}bg-success{% else %}bg-danger{% endif %}">
+                                    {{ training_job.get_status_display }}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Started:</th>
+                            <td>{{ training_job.started_at|date:"F d, Y H:i" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Completed:</th>
+                            <td>{{ training_job.completed_at|date:"F d, Y H:i"|default:"Not completed" }}</td>
+                        </tr>
+                        {% if training_job.accuracy %}
+                        <tr>
+                            <th>Accuracy:</th>
+                            <td>{{ training_job.accuracy|floatformat:2 }}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if training_job.model_file %}
+                        <tr>
+                            <th>Model File:</th>
+                            <td><a href="{{ training_job.model_file.url }}">Download Model</a></td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        {% if training_job.status == 'pending' %}
+        <div class="card">
+            <div class="card-header">
+                <h5>Start Training</h5>
+            </div>
+            <div class="card-body">
+                <p>This job is ready to start. Click the button below to begin the training process.</p>
+                <a href="{% url 'start_training' training_job.id %}" class="btn btn-primary">Start Training</a>
+            </div>
+        </div>
+        {% elif training_job.status == 'in_progress' %}
+        <div class="card">
+            <div class="card-header">
+                <h5>Training in Progress</h5>
+            </div>
+            <div class="card-body">
+                <p>This job is currently running. The status will update when training is complete.</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Prediction Batches</h5>
+            </div>
+            <div class="card-body">
+                {% if prediction_batches %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                    <th>Created</th>
+                                    <th>Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for batch in prediction_batches %}
+                                    <tr>
+                                        <td>{{ batch.name }}</td>
+                                        <td>
+                                            <span class="badge {% if batch.status == 'pending' %}bg-secondary{% elif batch.status == 'in_progress' %}bg-warning{% elif batch.status == 'completed' %}bg-success{% else %}bg-danger{% endif %}">
+                                                {{ batch.get_status_display }}
+                                            </span>
+                                        </td>
+                                        <td>{{ batch.created_at|date:"M d, Y" }}</td>
+                                        <td>{{ batch.completed_at|date:"M d, Y"|default:"--" }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>No prediction batches have been run with this model yet.</p>
+                    {% if training_job.status == 'completed' %}
+                        <a href="{% url 'process_new_images' %}" class="btn btn-primary">Process New Images</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
