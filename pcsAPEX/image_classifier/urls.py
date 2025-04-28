@@ -15,6 +15,8 @@ urlpatterns = [
     path('training-jobs/create/', views.TrainingJobCreateView.as_view(), name='training_job_create'),
     path('training-jobs/<int:pk>/', views.TrainingJobDetailView.as_view(), name='training_job_detail'),
     path('training-jobs/<int:pk>/start/', views.start_training, name='start_training'),
+    path('training-jobs/<int:pk>/retrain/', views.retrain_job, name='retrain_job'),
+    path('training-jobs/<int:pk>/delete/', views.delete_job, name='delete_job'),
     path('process-new-images/', views.process_new_images, name='process_new_images'),
     path('system-config/', views.system_config, name='system_config'),
 ]

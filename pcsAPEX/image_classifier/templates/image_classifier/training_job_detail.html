@@ -2,6 +2,17 @@
 
 {% block title %}Training Job Details - Image Classification System{% endblock %}
 
+{% block extra_js %}
+{% if training_job.status == 'in_progress' %}
+<script>
+    // Auto-refresh the page every 10 seconds when a job is in progress
+    setTimeout(function() {
+        window.location.reload();
+    }, 10000);
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="row mb-4">
     <div class="col-md-8">
@@ -11,7 +22,10 @@
         <a href="{% url 'training_job_list' %}" class="btn btn-secondary">Back to Training Jobs</a>
         {% if training_job.status == 'pending' %}
             <a href="{% url 'start_training' training_job.id %}" class="btn btn-primary">Start Training</a>
+        {% elif training_job.status == 'completed' or training_job.status == 'failed' %}
+            <a href="{% url 'retrain_job' training_job.id %}" class="btn btn-warning">Retrain</a>
         {% endif %}
+        <a href="{% url 'delete_job' training_job.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this training job?');">Delete</a>
     </div>
 </div>
 
@@ -64,7 +78,7 @@
                 </table>
             </div>
         </div>
-        
+
         {% if training_job.status == 'pending' %}
         <div class="card">
             <div class="card-header">
@@ -82,14 +96,45 @@
             </div>
             <div class="card-body">
                 <p>This job is currently running. The status will update when training is complete.</p>
-                <div class="progress">
+                <div class="progress mb-3">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
                 </div>
+                <a href="{% url 'training_job_detail' training_job.id %}" class="btn btn-info">
+                    <i class="bi bi-arrow-clockwise"></i> Refresh Status
+                </a>
+            </div>
+        </div>
+        {% elif training_job.status == 'failed' %}
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5>Training Failed</h5>
+            </div>
+            <div class="card-body">
+                <p>This job failed to complete. This could be due to:</p>
+                <ul>
+                    <li>Not enough labeled images (minimum 10 required)</li>
+                    <li>Not enough categories (minimum 2 required)</li>
+                    <li>Error processing images</li>
+                    <li>System error during training</li>
+                </ul>
+                <p>Check the system logs for more details.</p>
+                <a href="{% url 'retrain_job' training_job.id %}" class="btn btn-warning">Retry Training</a>
+            </div>
+        </div>
+        {% elif training_job.status == 'completed' %}
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5>Training Completed</h5>
+            </div>
+            <div class="card-body">
+                <p>This job completed successfully with an accuracy of {{ training_job.accuracy|floatformat:2 }}%.</p>
+                <p>You can now use this model to process new images.</p>
+                <a href="{% url 'process_new_images' %}" class="btn btn-primary">Process New Images</a>
             </div>
         </div>
         {% endif %}
     </div>
-    
+
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">

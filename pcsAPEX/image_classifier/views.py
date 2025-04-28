@@ -343,12 +343,43 @@ def start_training(request, pk):
 
         # Start training in a background thread
         def train_in_background():
-            result = ml_utils.train_model(training_job.id)
-            if not result['success']:
-                # Log the error
+            try:
+                # Update job status to in_progress before calling train_model
+                training_job.status = 'in_progress'
+                training_job.save()
+
+                result = ml_utils.train_model(training_job.id)
+
+                if not result['success']:
+                    # Log the error
+                    import logging
+                    logger = logging.getLogger(__name__)
+                    logger.error(f"Training failed: {result.get('error', 'Unknown error')}")
+
+                    # Update the job status to failed
+                    try:
+                        job = TrainingJob.objects.get(id=training_job.id)
+                        if job.status != 'completed':  # Don't override completed status
+                            job.status = 'failed'
+                            job.save()
+                    except Exception as e:
+                        logger.error(f"Failed to update job status: {str(e)}")
+            except Exception as e:
+                # Handle any unexpected exceptions
                 import logging
+                import traceback
                 logger = logging.getLogger(__name__)
-                logger.error(f"Training failed: {result.get('error', 'Unknown error')}")
+                logger.error(f"Unhandled exception in training thread: {str(e)}")
+                logger.error(traceback.format_exc())
+
+                # Update the job status to failed
+                try:
+                    job = TrainingJob.objects.get(id=training_job.id)
+                    if job.status != 'completed':  # Don't override completed status
+                        job.status = 'failed'
+                        job.save()
+                except Exception as inner_e:
+                    logger.error(f"Failed to update job status: {str(inner_e)}")
 
         thread = threading.Thread(target=train_in_background)
         thread.daemon = True
@@ -359,6 +390,37 @@ def start_training(request, pk):
         messages.warning(request, f'Training job "{training_job.name}" is already {training_job.status}')
 
     return redirect('training_job_detail', pk=pk)
+
+def retrain_job(request, pk):
+    """View to retrain an existing job"""
+    training_job = get_object_or_404(TrainingJob, pk=pk)
+
+    # Only allow retraining of completed or failed jobs
+    if training_job.status not in ['completed', 'failed']:
+        messages.error(request, f'Cannot retrain job "{training_job.name}" because it is currently {training_job.status}.')
+        return redirect('training_job_detail', pk=pk)
+
+    # Reset the job status
+    training_job.status = 'pending'
+    training_job.completed_at = None
+    training_job.accuracy = None
+    training_job.save()
+
+    messages.success(request, f'Training job "{training_job.name}" has been reset and is ready for retraining.')
+    return redirect('training_job_detail', pk=pk)
+
+def delete_job(request, pk):
+    """View to delete a training job"""
+    training_job = get_object_or_404(TrainingJob, pk=pk)
+
+    # Store the name for the success message
+    job_name = training_job.name
+
+    # Delete the job
+    training_job.delete()
+
+    messages.success(request, f'Training job "{job_name}" has been deleted.')
+    return redirect('training_job_list')
 
 def process_new_images(request):
     """View to process new images using a trained model"""

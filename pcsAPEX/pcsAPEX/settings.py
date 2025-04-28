@@ -130,3 +130,61 @@ MEDIA_ROOT = BASE_DIR / 'media'
 UPLOAD_DIR = BASE_DIR / 'media' / 'uploads'
 LABELED_DIR = BASE_DIR / 'media' / 'labeled'
 PROCESSED_DIR = BASE_DIR / 'media' / 'processed'
+
+# Logging configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs' / 'image_classifier.log',
+            'formatter': 'verbose',
+        },
+        'ml_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs' / 'ml_training.log',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'image_classifier': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'image_classifier.ml_utils': {
+            'handlers': ['console', 'ml_file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}

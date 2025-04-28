@@ -125,12 +125,18 @@ def train_model(training_job_id):
         Dictionary with training results
     """
     from .models import TrainingJob, Image, Category, SystemConfig
+    import traceback
 
     # Get the training job
     try:
         job = TrainingJob.objects.get(id=training_job_id)
-        job.status = 'in_progress'
-        job.save()
+        # Note: Status should already be set to 'in_progress' by the view
+        # This is a safety check
+        if job.status != 'in_progress':
+            job.status = 'in_progress'
+            job.save()
+
+        logger.info(f"Starting training job {job.id}: {job.name}")
 
         # Get configuration values
         use_gpu_config = SystemConfig.get_value('use_gpu', 'auto')
@@ -306,11 +312,16 @@ def train_model(training_job_id):
     except Exception as e:
         error_msg = f"Training error: {str(e)}"
         logger.error(error_msg)
+        logger.error(traceback.format_exc())
+
         try:
+            job = TrainingJob.objects.get(id=training_job_id)
             job.status = 'failed'
             job.save()
+            logger.info(f"Updated job {job.id} status to 'failed'")
         except Exception as inner_e:
             logger.error(f"Failed to update job status: {str(inner_e)}")
+            logger.error(traceback.format_exc())
 
         return {
             'success': False,
