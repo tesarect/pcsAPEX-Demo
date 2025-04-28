@@ -3,9 +3,9 @@ from .models import Category, Image, TrainingJob
 
 class ImageUploadForm(forms.Form):
     """Form for uploading images"""
-    images = forms.ImageField(
-        widget=forms.ClearableFileInput(attrs={'multiple': True}),
-        help_text='Select multiple images to upload'
+    # For simplicity, we'll use a single file field
+    image = forms.ImageField(
+        help_text='Select an image to upload'
     )
 
 class CategoryForm(forms.ModelForm):

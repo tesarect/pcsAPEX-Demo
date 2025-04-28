@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Image, TrainingJob, PredictionBatch
+from .models import Category, Image, TrainingJob, PredictionBatch, SystemConfig
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -26,3 +26,18 @@ class PredictionBatchAdmin(admin.ModelAdmin):
     list_filter = ('status', 'created_at', 'training_job')
     search_fields = ('name',)
     readonly_fields = ('created_at',)
+
+@admin.register(SystemConfig)
+class SystemConfigAdmin(admin.ModelAdmin):
+    list_display = ('key', 'value', 'description', 'updated_at')
+    search_fields = ('key', 'value', 'description')
+    readonly_fields = ('created_at', 'updated_at')
+    fieldsets = (
+        (None, {
+            'fields': ('key', 'value', 'description')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )

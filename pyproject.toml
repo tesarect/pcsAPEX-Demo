@@ -3,7 +3,7 @@ name = "demo-django"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
     "requests",
     "django",
@@ -11,4 +11,7 @@ dependencies = [
     "opencv-python-headless",
     "pytest",
     "pillow>=11.2.1",
+    "tensorflow>=2.15.0",
+    "scikit-learn>=1.4.0",
+    "numpy>=2.0.0",
 ]

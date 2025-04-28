@@ -48,8 +48,12 @@
                             <td>
                                 {% if image.category %}
                                     <span class="badge bg-dark">{{ image.category.name }}</span>
+                                    <a href="{% url 'edit_image_label' image.id %}" class="btn btn-sm btn-outline-primary ms-2">Edit</a>
                                 {% else %}
                                     <span class="text-muted">Not categorized</span>
+                                    {% if image.status != 'uploaded' %}
+                                        <a href="{% url 'edit_image_label' image.id %}" class="btn btn-sm btn-outline-primary ms-2">Add Label</a>
+                                    {% endif %}
                                 {% endif %}
                             </td>
                         </tr>

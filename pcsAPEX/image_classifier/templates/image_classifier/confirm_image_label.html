@@ -1,0 +1,63 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}Confirm Image Label - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>Suggested Label</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'image_list' %}" class="btn btn-secondary">Back to Images</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{ image.image.url }}" class="img-fluid image-detail" alt="{{ image.original_filename }}">
+                <h5 class="mt-3">{{ image.original_filename }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5>AI Suggested Label</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h4 class="alert-heading">Suggested Category: <strong>{{ suggestion.category_name }}</strong></h4>
+                    <p>Confidence: {{ suggestion.confidence|floatformat:2 }}%</p>
+                    <hr>
+                    <p class="mb-0">Do you want to accept this suggestion?</p>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" name="action" value="accept" class="btn btn-success btn-lg">
+                            <i class="bi bi-check-circle"></i> Accept Suggestion
+                        </button>
+                        <button type="submit" name="action" value="reject" class="btn btn-outline-danger">
+                            <i class="bi bi-x-circle"></i> Reject & Label Manually
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>About AI Suggestions</h5>
+            </div>
+            <div class="card-body">
+                <p>The system is using a trained machine learning model to suggest labels for your images.</p>
+                <p>The confidence percentage indicates how certain the model is about its prediction.</p>
+                <p>You can accept the suggestion or choose to label the image manually.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

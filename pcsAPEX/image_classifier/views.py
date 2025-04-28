@@ -9,9 +9,11 @@ from django.conf import settings
 
 from .models import Category, Image, TrainingJob, PredictionBatch
 from .forms import ImageUploadForm, CategoryForm, TrainingJobForm
+from . import ml_utils
 
 import os
 import uuid
+import threading
 from datetime import datetime
 
 def index(request):
@@ -70,20 +72,107 @@ def upload_image(request):
     if request.method == 'POST':
         form = ImageUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            for image_file in request.FILES.getlist('images'):
-                new_image = Image(
-                    image=image_file,
-                    original_filename=image_file.name,
-                    status='uploaded'
-                )
-                new_image.save()
+            # Get the image file
+            image_file = request.FILES['image']
 
-            messages.success(request, f'{len(request.FILES.getlist("images"))} images uploaded successfully!')
+            # Create a new image record
+            new_image = Image(
+                image=image_file,
+                original_filename=image_file.name,
+                status='uploaded'
+            )
+            new_image.save()
+
+            # Check if auto-suggest is enabled in system config
+            from .models import SystemConfig
+            auto_suggest = SystemConfig.get_value('auto_suggest_labels', 'true', as_type=bool)
+
+            if auto_suggest:
+                # Check if we have a trained model to suggest a label
+                completed_jobs = TrainingJob.objects.filter(status='completed')
+                if completed_jobs.exists():
+                    latest_job = completed_jobs.order_by('-completed_at').first()
+
+                    # Try to predict the category
+                    try:
+                        img_path = os.path.join(settings.MEDIA_ROOT, str(new_image.image))
+                        result = ml_utils.predict_image(img_path, latest_job.id)
+
+                        if result['success']:
+                            # Get confidence threshold from config
+                            min_confidence = SystemConfig.get_value('min_confidence_threshold', '70', as_type=float)
+
+                            # Only suggest if confidence is above threshold
+                            if result['confidence'] >= min_confidence:
+                                # Store the suggestion in the session for the confirmation page
+                                request.session['suggested_category'] = {
+                                    'image_id': new_image.id,
+                                    'category_name': result['category'],
+                                    'confidence': result['confidence']
+                                }
+
+                                messages.success(request, f'Image "{image_file.name}" uploaded successfully with a suggested category!')
+                                return redirect('confirm_image_label', pk=new_image.id)
+                    except Exception as e:
+                        import logging
+                        logger = logging.getLogger(__name__)
+                        logger.error(f"Error suggesting category: {str(e)}")
+
+            messages.success(request, f'Image "{image_file.name}" uploaded successfully!')
             return redirect('image_list')
     else:
         form = ImageUploadForm()
 
     return render(request, 'image_classifier/upload_image.html', {'form': form})
+
+def confirm_image_label(request, pk):
+    """View to confirm a suggested image label"""
+    image = get_object_or_404(Image, pk=pk)
+
+    # Get the suggestion from the session
+    suggestion = request.session.get('suggested_category', {})
+
+    if not suggestion or suggestion.get('image_id') != image.id:
+        messages.warning(request, 'No label suggestion available for this image.')
+        return redirect('label_image', pk=pk)
+
+    if request.method == 'POST':
+        action = request.POST.get('action')
+
+        if action == 'accept':
+            # Accept the suggested category
+            try:
+                category, created = Category.objects.get_or_create(name=suggestion['category_name'])
+                image.category = category
+                image.status = 'labeled'
+                image.confidence = suggestion['confidence']
+                image.save()
+
+                messages.success(request, f'Image labeled as {category.name}')
+
+                # Clear the suggestion from the session
+                if 'suggested_category' in request.session:
+                    del request.session['suggested_category']
+
+                return redirect('image_list')
+            except Exception as e:
+                messages.error(request, f'Error accepting suggestion: {str(e)}')
+
+        elif action == 'reject':
+            # Reject and go to manual labeling
+            if 'suggested_category' in request.session:
+                del request.session['suggested_category']
+
+            return redirect('label_image', pk=pk)
+
+    # Get all categories for the form
+    categories = Category.objects.all()
+
+    return render(request, 'image_classifier/confirm_image_label.html', {
+        'image': image,
+        'suggestion': suggestion,
+        'categories': categories
+    })
 
 def label_image(request, pk):
     """View to label an image"""
@@ -102,6 +191,32 @@ def label_image(request, pk):
 
     categories = Category.objects.all()
     return render(request, 'image_classifier/label_image.html', {
+        'image': image,
+        'categories': categories
+    })
+
+def edit_image_label(request, pk):
+    """View to edit an image label regardless of status"""
+    image = get_object_or_404(Image, pk=pk)
+
+    if request.method == 'POST':
+        category_id = request.POST.get('category')
+        if category_id:
+            category = get_object_or_404(Category, pk=category_id)
+            old_category = image.category.name if image.category else "None"
+            image.category = category
+
+            # Keep the status as 'processed' if it was already processed
+            if image.status != 'processed':
+                image.status = 'labeled'
+
+            image.save()
+
+            messages.success(request, f'Image label changed from {old_category} to {category.name}')
+            return redirect('image_detail', pk=pk)
+
+    categories = Category.objects.all()
+    return render(request, 'image_classifier/edit_image_label.html', {
         'image': image,
         'categories': categories
     })
@@ -154,62 +269,152 @@ class TrainingJobDetailView(DetailView):
         context['prediction_batches'] = self.object.prediction_batches.all()
         return context
 
+def system_config(request):
+    """View to manage system configurations"""
+    from .models import SystemConfig
+
+    # Default configurations
+    default_configs = {
+        'min_confidence_threshold': {
+            'value': '70',
+            'description': 'Minimum confidence threshold (%) for auto-labeling images'
+        },
+        'auto_suggest_labels': {
+            'value': 'true',
+            'description': 'Automatically suggest labels for newly uploaded images'
+        },
+        'training_epochs': {
+            'value': '10',
+            'description': 'Number of epochs to train the model'
+        },
+        'batch_size': {
+            'value': '32',
+            'description': 'Batch size for training'
+        },
+        'use_gpu': {
+            'value': 'auto',
+            'description': 'Use GPU for training if available (auto, true, false)'
+        }
+    }
+
+    # Create default configurations if they don't exist
+    for key, config in default_configs.items():
+        SystemConfig.set_value(key, config['value'], config['description'])
+
+    if request.method == 'POST':
+        # Update configurations
+        for key in default_configs.keys():
+            if key in request.POST:
+                SystemConfig.set_value(key, request.POST[key])
+
+        messages.success(request, 'Configuration updated successfully!')
+        return redirect('system_config')
+
+    # Get all configurations
+    configs = SystemConfig.objects.all().order_by('key')
+
+    return render(request, 'image_classifier/system_config.html', {
+        'configs': configs
+    })
+
 def start_training(request, pk):
     """View to start a training job"""
     training_job = get_object_or_404(TrainingJob, pk=pk)
 
     if training_job.status == 'pending':
-        # In a real application, this would trigger a background task
-        # For now, we'll just update the status
-        training_job.status = 'in_progress'
-        training_job.save()
+        # Check if we have enough labeled images
+        labeled_images = Image.objects.filter(status='labeled', category__isnull=False)
+        if labeled_images.count() < 10:
+            messages.error(request, 'Not enough labeled images. Please label at least 10 images before training.')
+            return redirect('training_job_detail', pk=pk)
 
-        messages.success(request, f'Training job "{training_job.name}" started!')
+        # Check if we have at least 2 categories
+        categories = Category.objects.filter(
+            id__in=labeled_images.values_list('category_id', flat=True).distinct()
+        )
+        if categories.count() < 2:
+            messages.error(request, 'At least 2 different categories are required for training.')
+            return redirect('training_job_detail', pk=pk)
+
+        # Check GPU availability
+        is_gpu_available, gpu_message = ml_utils.check_gpu_availability()
+        if not is_gpu_available:
+            messages.warning(request, f'GPU not available: {gpu_message} Training will be slower.')
+
+        # Start training in a background thread
+        def train_in_background():
+            result = ml_utils.train_model(training_job.id)
+            if not result['success']:
+                # Log the error
+                import logging
+                logger = logging.getLogger(__name__)
+                logger.error(f"Training failed: {result.get('error', 'Unknown error')}")
+
+        thread = threading.Thread(target=train_in_background)
+        thread.daemon = True
+        thread.start()
+
+        messages.success(request, f'Training job "{training_job.name}" started! This may take several minutes. Check back later for results.')
     else:
         messages.warning(request, f'Training job "{training_job.name}" is already {training_job.status}')
 
     return redirect('training_job_detail', pk=pk)
 
 def process_new_images(request):
-    """View to process new images (would be called by a scheduled task in production)"""
-    # In a real application, this would be a background task
-    # For now, we'll just simulate the process
+    """View to process new images using a trained model"""
+    import logging
+    logger = logging.getLogger(__name__)
 
     new_images = Image.objects.filter(status='uploaded')
-    processed_count = 0
 
-    if new_images.exists() and TrainingJob.objects.filter(status='completed').exists():
-        latest_job = TrainingJob.objects.filter(status='completed').order_by('-completed_at').first()
+    if not new_images.exists():
+        messages.info(request, 'No new images to process')
+        return redirect('image_list')
 
-        # Create a new prediction batch
-        batch = PredictionBatch.objects.create(
-            name=f'Batch {datetime.now().strftime("%Y%m%d-%H%M%S")}',
-            status='in_progress',
-            training_job=latest_job
-        )
+    completed_jobs = TrainingJob.objects.filter(status='completed')
+    if not completed_jobs.exists():
+        messages.warning(request, 'No completed training jobs available for processing')
+        return redirect('image_list')
 
-        # Process each image
-        for image in new_images:
-            # In a real application, this would use the trained model to predict
-            # For now, we'll just randomly assign a category if available
-            categories = Category.objects.all()
-            if categories.exists():
-                import random
-                image.category = random.choice(categories)
-                image.confidence = random.uniform(0.7, 0.99)
-                image.status = 'processed'
-                image.save()
-                processed_count += 1
+    # Get the latest completed training job
+    latest_job = completed_jobs.order_by('-completed_at').first()
 
-        batch.status = 'completed'
-        batch.completed_at = datetime.now()
-        batch.save()
+    # Create a new prediction batch
+    batch = PredictionBatch.objects.create(
+        name=f'Batch {datetime.now().strftime("%Y%m%d-%H%M%S")}',
+        status='pending',
+        training_job=latest_job
+    )
 
-        messages.success(request, f'Processed {processed_count} new images')
-    else:
-        if not new_images.exists():
-            messages.info(request, 'No new images to process')
-        else:
-            messages.warning(request, 'No completed training jobs available for processing')
+    # Process images in a background thread
+    def process_in_background():
+        try:
+            logger.info(f"Starting image processing for batch {batch.id}")
+            result = ml_utils.process_images_batch(batch.id)
+            if result['success']:
+                logger.info(f"Successfully processed {result['processed']} images")
+            else:
+                logger.error(f"Error processing images: {result.get('error', 'Unknown error')}")
+                # Update batch status to failed if not already updated
+                try:
+                    batch_obj = PredictionBatch.objects.get(id=batch.id)
+                    if batch_obj.status == 'in_progress':
+                        batch_obj.status = 'failed'
+                        batch_obj.save()
+                except Exception as e:
+                    logger.error(f"Failed to update batch status: {str(e)}")
+        except Exception as e:
+            logger.error(f"Unhandled exception in process_in_background: {str(e)}")
+            try:
+                batch_obj = PredictionBatch.objects.get(id=batch.id)
+                batch_obj.status = 'failed'
+                batch_obj.save()
+            except Exception as inner_e:
+                logger.error(f"Failed to update batch status: {str(inner_e)}")
 
+    thread = threading.Thread(target=process_in_background)
+    thread.daemon = True
+    thread.start()
+
+    messages.success(request, 'Image processing started. This may take a moment. Check the image list for results.')
     return redirect('image_list')

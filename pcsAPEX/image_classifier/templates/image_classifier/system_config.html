@@ -1,0 +1,59 @@
+{% extends 'image_classifier/base.html' %}
+
+{% block title %}System Configuration - Image Classification System{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h1>System Configuration</h1>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'index' %}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5>Configuration Settings</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="alert alert-info">
+                        <h6>Configuration Settings</h6>
+                        <p>These settings control various aspects of the image classification system.</p>
+                    </div>
+                    
+                    {% for config in configs %}
+                    <div class="mb-3">
+                        <label for="{{ config.key }}" class="form-label">{{ config.description }}</label>
+                        
+                        {% if config.key == 'auto_suggest_labels' %}
+                            <select name="{{ config.key }}" id="{{ config.key }}" class="form-select">
+                                <option value="true" {% if config.value == 'true' %}selected{% endif %}>Enabled</option>
+                                <option value="false" {% if config.value == 'false' %}selected{% endif %}>Disabled</option>
+                            </select>
+                        {% elif config.key == 'use_gpu' %}
+                            <select name="{{ config.key }}" id="{{ config.key }}" class="form-select">
+                                <option value="auto" {% if config.value == 'auto' %}selected{% endif %}>Auto-detect</option>
+                                <option value="true" {% if config.value == 'true' %}selected{% endif %}>Force Enable</option>
+                                <option value="false" {% if config.value == 'false' %}selected{% endif %}>Force Disable</option>
+                            </select>
+                        {% else %}
+                            <input type="text" name="{{ config.key }}" id="{{ config.key }}" class="form-control" value="{{ config.value }}">
+                        {% endif %}
+                        
+                        <div class="form-text">Key: {{ config.key }}</div>
+                    </div>
+                    {% endfor %}
+                    
+                    <button type="submit" class="btn btn-primary">Save Configuration</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
