@@ -11,10 +11,30 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import yaml
+import logging.config
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+"""
+[TODO : Logging 1: switch to a logging hangler where its loaded from a .yaml file]
+LOGGING_CONFIG = None  # to use custom log handler.
+
+with open(BASE_DIR / "logging.yaml", "r") as f:
+    logging_config = yaml.safe_load(f)
+
+    # Fix dynamic file paths if needed
+    log_dir = BASE_DIR / "logs"
+    log_dir.mkdir(exist_ok=True)
+
+    for handler in ['file', 'ml_file']:
+        file_path = log_dir / Path(logging_config['handlers'][handler]['filename']).name
+        logging_config['handlers'][handler]['filename'] = str(file_path)
+
+logging.config.dictConfig(logging_config)
+"""
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -137,7 +157,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'format': '{levelname} {name} {module} {process:d} {thread:d} {message}',
             'style': '{',
         },
         'simple': {

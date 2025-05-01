@@ -10,6 +10,7 @@ from django.conf import settings
 from .models import Category, Image, TrainingJob, PredictionBatch
 from .forms import ImageUploadForm, CategoryForm, TrainingJobForm
 from . import ml_utils
+from .services import get_image_statistics
 
 import os
 import uuid
@@ -19,7 +20,7 @@ from datetime import datetime
 def index(request):
     """Home page view"""
     total_images = Image.objects.count()
-    labeled_images = Image.objects.filter(status='labeled').count()
+    labeled_images = Image.objects.filter(status__in=['labeled', 'training']).count()
     training_jobs = TrainingJob.objects.count()
     categories = Category.objects.count()
 
@@ -83,11 +84,11 @@ def upload_image(request):
             )
             new_image.save()
 
-            # Check if auto-suggest is enabled in system config
-            from .models import SystemConfig
-            auto_suggest = SystemConfig.get_value('auto_suggest_labels', 'true', as_type=bool)
+            # Check if auto-suggest is enabled using Pydantic model
+            from .schemas import TrainingConfig
+            config = TrainingConfig.from_system_config()
 
-            if auto_suggest:
+            if config.auto_suggest_labels:
                 # Check if we have a trained model to suggest a label
                 completed_jobs = TrainingJob.objects.filter(status='completed')
                 if completed_jobs.exists():
@@ -99,11 +100,8 @@ def upload_image(request):
                         result = ml_utils.predict_image(img_path, latest_job.id)
 
                         if result['success']:
-                            # Get confidence threshold from config
-                            min_confidence = SystemConfig.get_value('min_confidence_threshold', '70', as_type=float)
-
                             # Only suggest if confidence is above threshold
-                            if result['confidence'] >= min_confidence:
+                            if result['confidence'] >= config.min_confidence_threshold:
                                 # Store the suggestion in the session for the confirmation page
                                 request.session['suggested_category'] = {
                                     'image_id': new_image.id,
@@ -183,7 +181,7 @@ def label_image(request, pk):
         if category_id:
             category = get_object_or_404(Category, pk=category_id)
             image.category = category
-            image.status = 'labeled'
+            image.status = 'labeled'  # Always set status to 'labeled' when category is assigned
             image.save()
 
             messages.success(request, f'Image labeled as {category.name}')
@@ -280,7 +278,7 @@ def system_config(request):
             'description': 'Minimum confidence threshold (%) for auto-labeling images'
         },
         'auto_suggest_labels': {
-            'value': 'true',
+            'value': 'false',
             'description': 'Automatically suggest labels for newly uploaded images'
         },
         'training_epochs': {
@@ -294,18 +292,44 @@ def system_config(request):
         'use_gpu': {
             'value': 'auto',
             'description': 'Use GPU for training if available (auto, true, false)'
+        },
+        'learning_rate': {
+            'value': '0.001',
+            'description': 'Learning rate for model optimizer'
         }
     }
 
-    # Create default configurations if they don't exist
+    # Create default configurations ONLY if they don't exist
     for key, config in default_configs.items():
-        SystemConfig.set_value(key, config['value'], config['description'])
+        # Check if the config already exists
+        existing_value = SystemConfig.get_value(key)
+        if existing_value is None:
+            # Only set the default if the config doesn't exist
+            SystemConfig.set_value(key, config['value'], config['description'])
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.info(f"Created default config: {key} = {config['value']}")
 
     if request.method == 'POST':
         # Update configurations
         for key in default_configs.keys():
             if key in request.POST:
-                SystemConfig.set_value(key, request.POST[key])
+                value = request.POST[key]
+                # Log the configuration update
+                import logging
+                logger = logging.getLogger(__name__)
+                logger.info(f"Updating system config: {key} = {value}")
+
+                # Save the configuration
+                config = SystemConfig.set_value(key, value)
+
+                # Verify the save was successful
+                saved_value = SystemConfig.get_value(key)
+                if saved_value != value:
+                    logger.error(f"Failed to save config {key}: expected {value}, got {saved_value}")
+                    messages.error(request, f'Failed to save configuration for {key}')
+                else:
+                    logger.info(f"Successfully saved config {key} = {value}")
 
         messages.success(request, 'Configuration updated successfully!')
         return redirect('system_config')
@@ -319,12 +343,37 @@ def system_config(request):
 
 def start_training(request, pk):
     """View to start a training job"""
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"Starting training job with ID {pk}")
+
     training_job = get_object_or_404(TrainingJob, pk=pk)
+    logger.info(f"Found training job: {training_job.name} (status: {training_job.status})")
+
+    stats = get_image_statistics()
+    logger.info(f"Image statistics: {stats}")
+
+    # Check if there are images stuck in 'training' status
+    if 'training' in stats['status_counts'] and stats['status_counts']['training'] > 0:
+        # Reset training images before proceeding
+        from .services import reset_training_images
+        reset_result = reset_training_images()
+        logger.info(f"Reset {reset_result['count']} images from 'training' to 'labeled' status")
+        messages.info(request, f"Reset {reset_result['count']} images that were stuck in 'training' status.")
+        
+        # Refresh stats after reset
+        stats = get_image_statistics()
+        logger.info(f"Updated image statistics after reset: {stats}")
 
     if training_job.status == 'pending':
         # Check if we have enough labeled images
         labeled_images = Image.objects.filter(status='labeled', category__isnull=False)
+        all_images = Image.objects.all()
+        logger.info(f"Found {labeled_images.count()} labeled images out of {all_images.count()} total images")
+        logger.info(f"Image statuses: {stats['status_counts']}")
+        
         if labeled_images.count() < 10:
+            logger.warning(f"Not enough labeled images: {labeled_images.count()} < 10")
             messages.error(request, 'Not enough labeled images. Please label at least 10 images before training.')
             return redirect('training_job_detail', pk=pk)
 
@@ -332,28 +381,44 @@ def start_training(request, pk):
         categories = Category.objects.filter(
             id__in=labeled_images.values_list('category_id', flat=True).distinct()
         )
+        logger.info(f"Found {categories.count()} distinct categories")
+
         if categories.count() < 2:
+            logger.warning(f"Not enough categories: {categories.count()} < 2")
             messages.error(request, 'At least 2 different categories are required for training.')
             return redirect('training_job_detail', pk=pk)
 
         # Check GPU availability
-        is_gpu_available, gpu_message = ml_utils.check_gpu_availability()
+        is_gpu_available, gpu_message, gpu_details = ml_utils.check_gpu_availability()
+        logger.info(f"GPU availability check: {is_gpu_available}, {gpu_message}")
+
         if not is_gpu_available:
             messages.warning(request, f'GPU not available: {gpu_message} Training will be slower.')
+
+        # Update job status to in_progress before starting the thread
+        training_job.status = 'in_progress'
+        training_job.save()
+        logger.info(f"Updated job status to 'in_progress'")
 
         # Start training in a background thread
         def train_in_background():
             try:
-                # Update job status to in_progress before calling train_model
-                training_job.status = 'in_progress'
-                training_job.save()
+                logger.info(f"Background thread started for job {training_job.id}")
 
+                # Double-check that the job status is still in_progress
+                job = TrainingJob.objects.get(id=training_job.id)
+                if job.status != 'in_progress':
+                    job.status = 'in_progress'
+                    job.save()
+                    logger.info(f"Re-updated job status to 'in_progress'")
+
+                # Call the train_model function
+                logger.info(f"Calling train_model for job {training_job.id}")
                 result = ml_utils.train_model(training_job.id)
+                logger.info(f"train_model returned: {result}")
 
                 if not result['success']:
                     # Log the error
-                    import logging
-                    logger = logging.getLogger(__name__)
                     logger.error(f"Training failed: {result.get('error', 'Unknown error')}")
 
                     # Update the job status to failed
@@ -362,13 +427,12 @@ def start_training(request, pk):
                         if job.status != 'completed':  # Don't override completed status
                             job.status = 'failed'
                             job.save()
+                            logger.info(f"Updated job status to 'failed'")
                     except Exception as e:
                         logger.error(f"Failed to update job status: {str(e)}")
             except Exception as e:
                 # Handle any unexpected exceptions
-                import logging
                 import traceback
-                logger = logging.getLogger(__name__)
                 logger.error(f"Unhandled exception in training thread: {str(e)}")
                 logger.error(traceback.format_exc())
 
@@ -378,15 +442,20 @@ def start_training(request, pk):
                     if job.status != 'completed':  # Don't override completed status
                         job.status = 'failed'
                         job.save()
+                        logger.info(f"Updated job status to 'failed' after exception")
                 except Exception as inner_e:
                     logger.error(f"Failed to update job status: {str(inner_e)}")
 
+        # Create and start the thread
+        logger.info(f"Creating background thread for job {training_job.id}")
         thread = threading.Thread(target=train_in_background)
         thread.daemon = True
         thread.start()
+        logger.info(f"Background thread started for job {training_job.id}")
 
         messages.success(request, f'Training job "{training_job.name}" started! This may take several minutes. Check back later for results.')
     else:
+        logger.warning(f"Job {training_job.id} is already {training_job.status}, cannot start training")
         messages.warning(request, f'Training job "{training_job.name}" is already {training_job.status}')
 
     return redirect('training_job_detail', pk=pk)
@@ -480,3 +549,41 @@ def process_new_images(request):
 
     messages.success(request, 'Image processing started. This may take a moment. Check the image list for results.')
     return redirect('image_list')
+
+def reset_training_images(request):
+    """Reset images stuck in 'training' status back to 'labeled'"""
+    from .models import Image
+    training_images = Image.objects.filter(status='training')
+    count = training_images.count()
+    
+    # Only reset images that have a category assigned
+    training_images.filter(category__isnull=False).update(status='labeled')
+    
+    messages.success(request, f'{count} images reset from training to labeled status.')
+    return redirect('image_list')
+
+def get_training_progress(request, pk):
+    """API endpoint to get training progress"""
+    from django.core.cache import cache
+    from django.http import JsonResponse
+    
+    # Get the training job
+    training_job = get_object_or_404(TrainingJob, pk=pk)
+    
+    # Get progress from cache
+    cache_key = f"training_progress_{pk}"
+    progress_data = cache.get(cache_key)
+    
+    if not progress_data:
+        # Default progress data if none is found
+        progress_data = {
+            'phase': 'unknown',
+            'progress': 0,
+            'message': 'No progress data available',
+            'updated_at': None
+        }
+    
+    # Add job status
+    progress_data['job_status'] = training_job.status
+    
+    return JsonResponse(progress_data)

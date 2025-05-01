@@ -21,35 +21,45 @@
             <div class="card-body">
                 <form method="post">
                     {% csrf_token %}
-                    
+
                     <div class="alert alert-info">
                         <h6>Configuration Settings</h6>
                         <p>These settings control various aspects of the image classification system.</p>
                     </div>
-                    
+
                     {% for config in configs %}
                     <div class="mb-3">
                         <label for="{{ config.key }}" class="form-label">{{ config.description }}</label>
-                        
+
                         {% if config.key == 'auto_suggest_labels' %}
                             <select name="{{ config.key }}" id="{{ config.key }}" class="form-select">
                                 <option value="true" {% if config.value == 'true' %}selected{% endif %}>Enabled</option>
                                 <option value="false" {% if config.value == 'false' %}selected{% endif %}>Disabled</option>
                             </select>
+                            <div class="form-text">Current value: {{ config.value }}</div>
                         {% elif config.key == 'use_gpu' %}
                             <select name="{{ config.key }}" id="{{ config.key }}" class="form-select">
                                 <option value="auto" {% if config.value == 'auto' %}selected{% endif %}>Auto-detect</option>
                                 <option value="true" {% if config.value == 'true' %}selected{% endif %}>Force Enable</option>
                                 <option value="false" {% if config.value == 'false' %}selected{% endif %}>Force Disable</option>
                             </select>
+                            <div class="form-text">Current value: {{ config.value }}</div>
                         {% else %}
                             <input type="text" name="{{ config.key }}" id="{{ config.key }}" class="form-control" value="{{ config.value }}">
+                            <div class="form-text">Current value: {{ config.value }}</div>
                         {% endif %}
-                        
+
                         <div class="form-text">Key: {{ config.key }}</div>
                     </div>
                     {% endfor %}
-                    
+
+                    <div class="mb-3">
+                        <label for="learning_rate" class="form-label">Learning Rate</label>
+                        <input type="text" class="form-control" id="learning_rate" name="learning_rate" 
+                               value="{{ learning_rate }}" placeholder="0.001">
+                        <div class="form-text">Learning rate for model optimizer (e.g., 0.001, 0.0001)</div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Save Configuration</button>
                 </form>
             </div>

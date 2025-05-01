@@ -1,0 +1,858 @@
+INFO 2025-04-28 14:56:09,684 autoreload 25180 136265763870528 Watching for file changes with StatReloader
+INFO 2025-04-28 14:56:19,275 basehttp 25180 136263035254464 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 14:56:23,048 basehttp 25180 136263035254464 "GET /system-config/ HTTP/1.1" 200 6803
+INFO 2025-04-28 14:56:47,899 basehttp 25180 136263035254464 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 14:56:47,934 basehttp 25180 136263035254464 "GET /system-config/ HTTP/1.1" 200 7041
+WARNING 2025-04-28 14:56:48,200 log 25180 136263035254464 Not Found: /favicon.ico
+INFO 2025-04-28 14:56:50,991 basehttp 25180 136263035254464 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 14:56:53,354 basehttp 25180 136263035254464 "GET /training-jobs/ HTTP/1.1" 200 5757
+INFO 2025-04-28 14:56:59,994 basehttp 25180 136263035254464 "GET /training-jobs/2/ HTTP/1.1" 200 5370
+INFO 2025-04-28 14:57:01,509 basehttp 25180 136263035254464 "GET /training-jobs/2/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 14:57:01,524 basehttp 25180 136263035254464 "GET /training-jobs/2/ HTTP/1.1" 200 5646
+INFO 2025-04-28 14:57:46,266 basehttp 25180 136263035254464 "GET /images/ HTTP/1.1" 200 15441
+INFO 2025-04-28 14:57:46,306 basehttp 25180 136263035254464 "GET /media/uploads/4b1a59f5-78f2-44c7-b82e-57dc282ae932.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,309 basehttp 25180 136263024764608 "GET /media/uploads/aae934b1-2a7b-443d-a622-bf2fc7ee6398.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,313 basehttp 25180 136263016371904 "GET /media/uploads/4628e5eb-6bc0-4161-bdfe-30c311090fd9.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,315 basehttp 25180 136263024764608 "GET /media/uploads/366a3402-ccb8-4bb0-a2de-5554d05c9df4.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,315 basehttp 25180 136262803519168 "GET /media/uploads/08ce1691-7a1c-4a17-9ec4-ee584f6208c3.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,315 basehttp 25180 136262786733760 "GET /media/uploads/d8abd2ab-ab32-41db-bba5-0301aa1c7654.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,317 basehttp 25180 136262795126464 "GET /media/uploads/6ecff906-d797-433c-8fb7-db31cc8a6b09.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,318 basehttp 25180 136263016371904 "GET /media/uploads/7bf9553b-d95c-40bc-ba43-32d88f775cc8.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,320 basehttp 25180 136262803519168 "GET /media/uploads/90eb941f-c251-4003-976b-d475d4c03d04.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:57:46,320 basehttp 25180 136262786733760 "GET /media/uploads/e7139dc7-1f6f-41b3-889f-929ca0620e03.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 14:58:08,604 basehttp 25180 136263035254464 "GET /images/upload/ HTTP/1.1" 200 4257
+INFO 2025-04-28 14:58:20,666 basehttp 25180 136263035254464 "POST /images/upload/ HTTP/1.1" 302 0
+INFO 2025-04-28 14:58:20,686 basehttp 25180 136263035254464 "GET /images/ HTTP/1.1" 200 16782
+INFO 2025-04-28 14:58:20,775 basehttp 25180 136262795126464 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 200 4354
+INFO 2025-04-28 15:00:20,584 basehttp 25180 136263035254464 "GET /images/11/ HTTP/1.1" 200 5798
+INFO 2025-04-28 15:00:20,637 basehttp 25180 136263035254464 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:00:35,005 basehttp 25180 136263035254464 "GET /training-jobs/ HTTP/1.1" 200 5757
+INFO 2025-04-28 15:00:38,555 basehttp 25180 136263035254464 "GET /training-jobs/2/ HTTP/1.1" 200 5370
+INFO 2025-04-28 15:00:47,101 basehttp 25180 136263035254464 "GET /training-jobs/2/delete/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:00:47,118 basehttp 25180 136263035254464 "GET /training-jobs/ HTTP/1.1" 200 4975
+INFO 2025-04-28 15:00:49,245 basehttp 25180 136263035254464 "GET /training-jobs/1/ HTTP/1.1" 200 5731
+INFO 2025-04-28 15:00:54,559 basehttp 25180 136263035254464 "GET /training-jobs/1/retrain/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:00:54,572 basehttp 25180 136263035254464 "GET /training-jobs/1/ HTTP/1.1" 200 5664
+INFO 2025-04-28 15:00:59,063 basehttp 25180 136263035254464 "GET /training-jobs/1/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:00:59,075 basehttp 25180 136263035254464 "GET /training-jobs/1/ HTTP/1.1" 200 5657
+INFO 2025-04-28 15:01:25,455 basehttp 25180 136263035254464 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:01:26,908 basehttp 25180 136263035254464 "GET /process-new-images/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:01:26,929 basehttp 25180 136263035254464 "GET /images/ HTTP/1.1" 200 16779
+INFO 2025-04-28 15:01:27,002 basehttp 25180 136263035254464 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:01:33,558 basehttp 25180 136263035254464 "GET /training-jobs/ HTTP/1.1" 200 4896
+INFO 2025-04-28 15:01:40,837 basehttp 25180 136263035254464 "GET /training-jobs/1/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:01:40,853 basehttp 25180 136263035254464 "GET /training-jobs/1/ HTTP/1.1" 200 5657
+INFO 2025-04-28 15:03:12,022 basehttp 25180 136263035254464 "GET /training-jobs/ HTTP/1.1" 200 4896
+INFO 2025-04-28 15:03:13,329 basehttp 25180 136263035254464 "GET /training-jobs/create/ HTTP/1.1" 200 4664
+INFO 2025-04-28 15:03:25,583 basehttp 25180 136263035254464 "POST /training-jobs/create/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:03:25,597 basehttp 25180 136263035254464 "GET /training-jobs/ HTTP/1.1" 200 6168
+INFO 2025-04-28 15:03:30,504 basehttp 25180 136263035254464 "GET /training-jobs/3/ HTTP/1.1" 200 5364
+INFO 2025-04-28 15:03:34,922 basehttp 25180 136263035254464 "GET /training-jobs/3/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:03:34,936 basehttp 25180 136263035254464 "GET /training-jobs/3/ HTTP/1.1" 200 5640
+INFO 2025-04-28 15:08:06,268 autoreload 26348 124040773220160 Watching for file changes with StatReloader
+INFO 2025-04-28 15:08:11,279 basehttp 26348 124038044186304 "GET /training-jobs/3/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:08:11,292 basehttp 26348 124038044186304 "GET /training-jobs/3/ HTTP/1.1" 200 5640
+INFO 2025-04-28 15:08:12,766 basehttp 26348 124038044186304 "GET /system-config/ HTTP/1.1" 200 6803
+INFO 2025-04-28 15:09:15,811 basehttp 26348 124038044186304 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:09:15,845 basehttp 26348 124038044186304 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:09:41,318 basehttp 26348 124038044186304 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:09:43,117 basehttp 26348 124038044186304 "GET /process-new-images/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:09:43,144 basehttp 26348 124038044186304 "GET /images/ HTTP/1.1" 200 16779
+INFO 2025-04-28 15:09:43,235 basehttp 26348 124038044186304 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,238 basehttp 26348 124038032647872 "GET /media/uploads/4b1a59f5-78f2-44c7-b82e-57dc282ae932.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,238 basehttp 26348 124038044186304 "GET /media/uploads/d8abd2ab-ab32-41db-bba5-0301aa1c7654.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,239 basehttp 26348 124038024255168 "GET /media/uploads/aae934b1-2a7b-443d-a622-bf2fc7ee6398.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,242 basehttp 26348 124038015862464 "GET /media/uploads/4628e5eb-6bc0-4161-bdfe-30c311090fd9.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,246 basehttp 26348 124038032647872 "GET /media/uploads/366a3402-ccb8-4bb0-a2de-5554d05c9df4.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,247 basehttp 26348 124038024255168 "GET /media/uploads/7bf9553b-d95c-40bc-ba43-32d88f775cc8.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,250 basehttp 26348 124038015862464 "GET /media/uploads/90eb941f-c251-4003-976b-d475d4c03d04.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,254 basehttp 26348 124038007469760 "GET /media/uploads/08ce1691-7a1c-4a17-9ec4-ee584f6208c3.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,254 basehttp 26348 124037999077056 "GET /media/uploads/6ecff906-d797-433c-8fb7-db31cc8a6b09.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:43,257 basehttp 26348 124038007469760 "GET /media/uploads/e7139dc7-1f6f-41b3-889f-929ca0620e03.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:09:45,761 basehttp 26348 124038044186304 "GET /process-new-images/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:09:45,787 basehttp 26348 124038044186304 "GET /images/ HTTP/1.1" 200 16779
+INFO 2025-04-28 15:09:55,499 basehttp 26348 124038044186304 "GET /training-jobs/ HTTP/1.1" 200 5931
+INFO 2025-04-28 15:09:57,454 basehttp 26348 124038044186304 "GET /training-jobs/3/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:09:57,477 basehttp 26348 124038044186304 "GET /training-jobs/3/ HTTP/1.1" 200 5640
+INFO 2025-04-28 15:10:04,155 basehttp 26348 124038044186304 "GET /training-jobs/3/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:10:04,170 basehttp 26348 124038044186304 "GET /training-jobs/3/ HTTP/1.1" 200 5640
+INFO 2025-04-28 15:14:10,639 autoreload 26348 124040773220160 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO 2025-04-28 15:14:11,927 autoreload 27162 125222200973120 Watching for file changes with StatReloader
+INFO 2025-04-28 15:14:31,245 autoreload 27162 125222200973120 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO 2025-04-28 15:14:32,753 autoreload 27242 125104945014592 Watching for file changes with StatReloader
+INFO 2025-04-28 15:14:48,973 autoreload 27242 125104945014592 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO 2025-04-28 15:14:50,403 autoreload 27317 124517583832896 Watching for file changes with StatReloader
+INFO 2025-04-28 15:15:28,638 autoreload 27317 124517583832896 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/models.py changed, reloading.
+INFO 2025-04-28 15:15:30,029 autoreload 27419 128143254652736 Watching for file changes with StatReloader
+INFO 2025-04-28 15:19:15,215 autoreload 27419 128143254652736 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-04-28 15:19:16,528 autoreload 28074 131653683955520 Watching for file changes with StatReloader
+INFO 2025-04-28 15:19:30,528 autoreload 28074 131653683955520 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/models.py changed, reloading.
+INFO 2025-04-28 15:19:31,937 autoreload 28147 130645684037440 Watching for file changes with StatReloader
+INFO 2025-04-28 15:20:37,825 autoreload 28348 132178479159104 Watching for file changes with StatReloader
+INFO 2025-04-28 15:21:01,836 autoreload 28427 129793208289088 Watching for file changes with StatReloader
+INFO 2025-04-28 15:21:11,155 basehttp 28427 129790479693504 "GET / HTTP/1.1" 200 5299
+WARNING 2025-04-28 15:21:11,365 log 28427 129790479693504 Not Found: /favicon.ico
+WARNING 2025-04-28 15:21:11,365 basehttp 28427 129790479693504 "GET /favicon.ico HTTP/1.1" 404 7100
+INFO 2025-04-28 15:21:38,087 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:21:38,089 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:21:38,094 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:21:38,097 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:21:38,101 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:21:38,102 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:21:38,108 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:21:38,109 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:21:38,112 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:21:38,113 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:21:38,120 basehttp 28427 129790479693504 "GET /system-config/ HTTP/1.1" 200 6803
+INFO 2025-04-28 15:21:49,589 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:21:49,590 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:21:49,594 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:21:49,595 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:21:49,598 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:21:49,598 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:21:49,601 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:21:49,603 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:21:49,608 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:21:49,609 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:21:49,609 views 28427 129790479693504 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:21:49,614 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:21:49,616 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:21:49,617 views 28427 129790479693504 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:21:49,617 views 28427 129790479693504 Updating system config: auto_suggest_labels = false
+INFO 2025-04-28 15:21:49,622 models 28427 129790479693504 Updated existing config: auto_suggest_labels=false
+INFO 2025-04-28 15:21:49,623 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:21:49,624 views 28427 129790479693504 Successfully saved config auto_suggest_labels = false
+INFO 2025-04-28 15:21:49,624 views 28427 129790479693504 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:21:49,629 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:21:49,630 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:21:49,630 views 28427 129790479693504 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:21:49,630 views 28427 129790479693504 Updating system config: batch_size = 32
+INFO 2025-04-28 15:21:49,634 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:21:49,636 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:21:49,636 views 28427 129790479693504 Successfully saved config batch_size = 32
+INFO 2025-04-28 15:21:49,636 views 28427 129790479693504 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:21:49,640 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:21:49,641 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:21:49,641 views 28427 129790479693504 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:21:49,642 basehttp 28427 129790479693504 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:21:49,652 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:21:49,654 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:21:49,658 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:21:49,659 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:21:49,663 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:21:49,665 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:21:49,669 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:21:49,671 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:21:49,675 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:21:49,676 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:21:49,680 basehttp 28427 129790479693504 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:22:23,852 basehttp 28427 129790479693504 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:23:02,095 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:23:02,096 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:23:02,100 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:23:02,101 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:23:02,107 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:23:02,108 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:23:02,112 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:23:02,113 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:23:02,117 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:23:02,118 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:23:02,120 basehttp 28427 129790479693504 "GET /system-config/ HTTP/1.1" 200 6803
+INFO 2025-04-28 15:23:50,068 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:23:50,069 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:23:50,073 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:23:50,075 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:23:50,080 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:23:50,081 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:23:50,086 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:23:50,087 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:23:50,091 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:23:50,092 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:23:50,092 views 28427 129790479693504 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:23:50,097 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:23:50,098 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:23:50,099 views 28427 129790479693504 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:23:50,099 views 28427 129790479693504 Updating system config: auto_suggest_labels = true
+INFO 2025-04-28 15:23:50,103 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:23:50,104 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:23:50,105 views 28427 129790479693504 Successfully saved config auto_suggest_labels = true
+INFO 2025-04-28 15:23:50,105 views 28427 129790479693504 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:23:50,110 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:23:50,111 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:23:50,111 views 28427 129790479693504 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:23:50,112 views 28427 129790479693504 Updating system config: batch_size = 10
+INFO 2025-04-28 15:23:50,116 models 28427 129790479693504 Updated existing config: batch_size=10
+INFO 2025-04-28 15:23:50,117 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:23:50,118 views 28427 129790479693504 Successfully saved config batch_size = 10
+INFO 2025-04-28 15:23:50,118 views 28427 129790479693504 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:23:50,122 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:23:50,124 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:23:50,124 views 28427 129790479693504 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:23:50,125 basehttp 28427 129790479693504 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:23:50,141 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:23:50,143 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:23:50,147 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:23:50,148 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:23:50,153 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:23:50,154 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:23:50,158 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:23:50,159 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:23:50,163 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:23:50,164 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:23:50,167 basehttp 28427 129790479693504 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:23:56,163 basehttp 28427 129790479693504 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:23:59,096 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:23:59,097 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:23:59,101 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:23:59,105 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:23:59,109 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:23:59,110 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:23:59,114 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:23:59,115 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:23:59,120 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:23:59,121 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:23:59,125 basehttp 28427 129790479693504 "GET /system-config/ HTTP/1.1" 200 6803
+INFO 2025-04-28 15:24:09,681 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:24:09,682 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:24:09,687 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:24:09,688 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:24:09,693 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:24:09,694 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:24:09,697 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:24:09,698 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:24:09,701 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:24:09,702 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:24:09,702 views 28427 129790479693504 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:24:09,706 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:24:09,707 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:24:09,707 views 28427 129790479693504 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:24:09,707 views 28427 129790479693504 Updating system config: auto_suggest_labels = false
+INFO 2025-04-28 15:24:09,710 models 28427 129790479693504 Updated existing config: auto_suggest_labels=false
+INFO 2025-04-28 15:24:09,711 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:24:09,711 views 28427 129790479693504 Successfully saved config auto_suggest_labels = false
+INFO 2025-04-28 15:24:09,711 views 28427 129790479693504 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:24:09,714 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:24:09,716 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:24:09,716 views 28427 129790479693504 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:24:09,716 views 28427 129790479693504 Updating system config: batch_size = 10
+INFO 2025-04-28 15:24:09,720 models 28427 129790479693504 Updated existing config: batch_size=10
+INFO 2025-04-28 15:24:09,721 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:24:09,722 views 28427 129790479693504 Successfully saved config batch_size = 10
+INFO 2025-04-28 15:24:09,722 views 28427 129790479693504 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:24:09,726 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:24:09,727 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:24:09,728 views 28427 129790479693504 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:24:09,729 basehttp 28427 129790479693504 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:24:09,744 models 28427 129790479693504 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:24:09,745 models 28427 129790479693504 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:24:09,749 models 28427 129790479693504 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:24:09,750 models 28427 129790479693504 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:24:09,755 models 28427 129790479693504 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:24:09,756 models 28427 129790479693504 Verification successful for training_epochs
+INFO 2025-04-28 15:24:09,762 models 28427 129790479693504 Updated existing config: batch_size=32
+INFO 2025-04-28 15:24:09,763 models 28427 129790479693504 Verification successful for batch_size
+INFO 2025-04-28 15:24:09,768 models 28427 129790479693504 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:24:09,769 models 28427 129790479693504 Verification successful for use_gpu
+INFO 2025-04-28 15:24:09,773 basehttp 28427 129790479693504 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:24:55,110 basehttp 28427 129790479693504 "GET /training-jobs/ HTTP/1.1" 200 5931
+INFO 2025-04-28 15:24:57,557 basehttp 28427 129790479693504 "GET /training-jobs/1/ HTTP/1.1" 200 5406
+INFO 2025-04-28 15:25:03,339 basehttp 28427 129790479693504 "GET /images/ HTTP/1.1" 200 16525
+INFO 2025-04-28 15:25:03,419 basehttp 28427 129790468155072 "GET /media/uploads/4b1a59f5-78f2-44c7-b82e-57dc282ae932.jpeg HTTP/1.1" 200 4354
+INFO 2025-04-28 15:25:03,423 basehttp 28427 129790479693504 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 200 4354
+INFO 2025-04-28 15:25:03,423 basehttp 28427 129790459762368 "GET /media/uploads/aae934b1-2a7b-443d-a622-bf2fc7ee6398.jpeg HTTP/1.1" 200 5113
+INFO 2025-04-28 15:25:03,423 basehttp 28427 129790442976960 "GET /media/uploads/08ce1691-7a1c-4a17-9ec4-ee584f6208c3.jpeg HTTP/1.1" 200 4903
+INFO 2025-04-28 15:25:03,424 basehttp 28427 129790468155072 "GET /media/uploads/d8abd2ab-ab32-41db-bba5-0301aa1c7654.jpeg HTTP/1.1" 200 3502
+INFO 2025-04-28 15:25:03,426 basehttp 28427 129790434584256 "GET /media/uploads/6ecff906-d797-433c-8fb7-db31cc8a6b09.jpeg HTTP/1.1" 200 4559
+INFO 2025-04-28 15:25:03,427 basehttp 28427 129790451369664 "GET /media/uploads/4628e5eb-6bc0-4161-bdfe-30c311090fd9.jpeg HTTP/1.1" 200 5149
+INFO 2025-04-28 15:25:03,430 basehttp 28427 129790442976960 "GET /media/uploads/90eb941f-c251-4003-976b-d475d4c03d04.jpeg HTTP/1.1" 200 3606
+INFO 2025-04-28 15:25:03,431 basehttp 28427 129790479693504 "GET /media/uploads/7bf9553b-d95c-40bc-ba43-32d88f775cc8.jpeg HTTP/1.1" 200 5488
+INFO 2025-04-28 15:25:03,432 basehttp 28427 129790459762368 "GET /media/uploads/366a3402-ccb8-4bb0-a2de-5554d05c9df4.jpeg HTTP/1.1" 200 3553
+INFO 2025-04-28 15:25:03,434 basehttp 28427 129790434584256 "GET /media/uploads/e7139dc7-1f6f-41b3-889f-929ca0620e03.jpeg HTTP/1.1" 200 110701
+INFO 2025-04-28 15:25:28,484 basehttp 28427 129790434584256 "GET /training-jobs/ HTTP/1.1" 200 5931
+INFO 2025-04-28 15:25:31,938 basehttp 28427 129790434584256 "GET /training-jobs/create/ HTTP/1.1" 200 4664
+INFO 2025-04-28 15:25:47,066 basehttp 28427 129790434584256 "POST /training-jobs/create/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:25:47,082 basehttp 28427 129790434584256 "GET /training-jobs/ HTTP/1.1" 200 7203
+INFO 2025-04-28 15:26:23,244 basehttp 28427 129790434584256 "GET /training-jobs/4/ HTTP/1.1" 200 5389
+INFO 2025-04-28 15:26:25,009 basehttp 28427 129790434584256 "GET /training-jobs/4/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:26:25,024 basehttp 28427 129790434584256 "GET /training-jobs/4/ HTTP/1.1" 200 5665
+INFO 2025-04-28 15:26:50,218 basehttp 28427 129790434584256 "GET /training-jobs/ HTTP/1.1" 200 6966
+INFO 2025-04-28 15:27:47,616 autoreload 29385 139887809292096 Watching for file changes with StatReloader
+INFO 2025-04-28 15:28:15,211 autoreload 29497 124597531297600 Watching for file changes with StatReloader
+INFO 2025-04-28 15:28:23,619 basehttp 29497 124594802390720 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:28:27,657 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:27,659 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:27,663 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:28:27,663 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:27,667 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:27,668 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:27,672 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:28:27,673 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:27,677 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:27,678 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:27,685 basehttp 29497 124594802390720 "GET /system-config/ HTTP/1.1" 200 6803
+INFO 2025-04-28 15:28:35,166 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:35,168 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:35,172 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:28:35,173 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:35,178 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:35,179 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:35,182 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:28:35,183 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:35,186 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:35,187 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:35,187 views 29497 124594802390720 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:28:35,192 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:35,192 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:35,193 views 29497 124594802390720 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:28:35,193 views 29497 124594802390720 Updating system config: auto_suggest_labels = true
+INFO 2025-04-28 15:28:35,197 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:28:35,197 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:35,198 views 29497 124594802390720 Successfully saved config auto_suggest_labels = true
+INFO 2025-04-28 15:28:35,199 views 29497 124594802390720 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:28:35,203 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:35,204 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:35,204 views 29497 124594802390720 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:28:35,204 views 29497 124594802390720 Updating system config: batch_size = 10
+INFO 2025-04-28 15:28:35,208 models 29497 124594802390720 Updated existing config: batch_size=10
+INFO 2025-04-28 15:28:35,208 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:35,209 views 29497 124594802390720 Successfully saved config batch_size = 10
+INFO 2025-04-28 15:28:35,209 views 29497 124594802390720 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:28:35,214 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:35,215 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:35,215 views 29497 124594802390720 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:28:35,216 basehttp 29497 124594802390720 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:28:35,227 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:35,228 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:35,233 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:28:35,233 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:35,238 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:35,238 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:35,242 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:28:35,242 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:35,247 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:35,248 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:35,250 basehttp 29497 124594802390720 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:28:56,942 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:56,943 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:56,946 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:28:56,947 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:56,952 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:56,954 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:56,959 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:28:56,960 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:56,965 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:56,966 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:56,966 views 29497 124594802390720 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:28:56,970 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:56,971 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:56,972 views 29497 124594802390720 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:28:56,972 views 29497 124594802390720 Updating system config: auto_suggest_labels = false
+INFO 2025-04-28 15:28:56,976 models 29497 124594802390720 Updated existing config: auto_suggest_labels=false
+INFO 2025-04-28 15:28:56,977 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:56,977 views 29497 124594802390720 Successfully saved config auto_suggest_labels = false
+INFO 2025-04-28 15:28:56,978 views 29497 124594802390720 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:28:56,981 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:56,981 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:56,982 views 29497 124594802390720 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:28:56,982 views 29497 124594802390720 Updating system config: batch_size = 10
+INFO 2025-04-28 15:28:56,985 models 29497 124594802390720 Updated existing config: batch_size=10
+INFO 2025-04-28 15:28:56,986 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:56,987 views 29497 124594802390720 Successfully saved config batch_size = 10
+INFO 2025-04-28 15:28:56,987 views 29497 124594802390720 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:28:56,990 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:56,991 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:56,991 views 29497 124594802390720 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:28:56,992 basehttp 29497 124594802390720 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:28:57,022 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:28:57,023 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:28:57,027 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:28:57,028 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:28:57,031 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:28:57,031 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:28:57,035 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:28:57,035 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:28:57,039 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:28:57,039 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:28:57,042 basehttp 29497 124594802390720 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:29:05,303 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:29:05,304 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:29:05,309 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:29:05,309 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:29:05,313 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:29:05,314 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:29:05,319 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:29:05,320 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:29:05,324 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:29:05,325 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:29:05,325 views 29497 124594802390720 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:29:05,330 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:29:05,332 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:29:05,333 views 29497 124594802390720 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:29:05,333 views 29497 124594802390720 Updating system config: auto_suggest_labels = false
+INFO 2025-04-28 15:29:05,337 models 29497 124594802390720 Updated existing config: auto_suggest_labels=false
+INFO 2025-04-28 15:29:05,338 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:29:05,339 views 29497 124594802390720 Successfully saved config auto_suggest_labels = false
+INFO 2025-04-28 15:29:05,339 views 29497 124594802390720 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:29:05,343 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:29:05,344 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:29:05,345 views 29497 124594802390720 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:29:05,345 views 29497 124594802390720 Updating system config: batch_size = 10
+INFO 2025-04-28 15:29:05,350 models 29497 124594802390720 Updated existing config: batch_size=10
+INFO 2025-04-28 15:29:05,351 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:29:05,352 views 29497 124594802390720 Successfully saved config batch_size = 10
+INFO 2025-04-28 15:29:05,352 views 29497 124594802390720 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:29:05,357 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:29:05,359 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:29:05,359 views 29497 124594802390720 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:29:05,361 basehttp 29497 124594802390720 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:29:05,374 models 29497 124594802390720 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:29:05,375 models 29497 124594802390720 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:29:05,379 models 29497 124594802390720 Updated existing config: auto_suggest_labels=true
+INFO 2025-04-28 15:29:05,380 models 29497 124594802390720 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:29:05,384 models 29497 124594802390720 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:29:05,385 models 29497 124594802390720 Verification successful for training_epochs
+INFO 2025-04-28 15:29:05,388 models 29497 124594802390720 Updated existing config: batch_size=32
+INFO 2025-04-28 15:29:05,389 models 29497 124594802390720 Verification successful for batch_size
+INFO 2025-04-28 15:29:05,393 models 29497 124594802390720 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:29:05,394 models 29497 124594802390720 Verification successful for use_gpu
+INFO 2025-04-28 15:29:05,398 basehttp 29497 124594802390720 "GET /system-config/ HTTP/1.1" 200 7041
+INFO 2025-04-28 15:32:55,918 basehttp 29497 124594802390720 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:33:00,616 basehttp 29497 124594802390720 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:33:03,301 basehttp 29497 124594802390720 "GET /images/ HTTP/1.1" 200 16525
+INFO 2025-04-28 15:33:03,335 basehttp 29497 124594802390720 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 304 0
+INFO 2025-04-28 15:33:05,528 basehttp 29497 124594802390720 "GET /categories/ HTTP/1.1" 200 4414
+INFO 2025-04-28 15:33:07,033 basehttp 29497 124594802390720 "GET /training-jobs/ HTTP/1.1" 200 6966
+INFO 2025-04-28 15:33:09,594 basehttp 29497 124594802390720 "GET /training-jobs/4/ HTTP/1.1" 200 5389
+INFO 2025-04-28 15:36:15,087 autoreload 29497 124597531297600 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-04-28 15:36:15,616 autoreload 28147 130645684037440 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-04-28 15:36:16,491 autoreload 30141 131293175162688 Watching for file changes with StatReloader
+INFO 2025-04-28 15:36:17,083 autoreload 30177 135581911828288 Watching for file changes with StatReloader
+INFO 2025-04-28 15:36:52,070 autoreload 30177 135581911828288 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO 2025-04-28 15:36:52,729 autoreload 30141 131293175162688 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO 2025-04-28 15:36:53,551 autoreload 30281 124791634569024 Watching for file changes with StatReloader
+INFO 2025-04-28 15:36:54,269 autoreload 30317 123784171145024 Watching for file changes with StatReloader
+INFO 2025-04-28 15:37:29,247 autoreload 30317 123784171145024 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-04-28 15:37:29,802 autoreload 30281 124791634569024 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-04-28 15:37:30,734 autoreload 30418 137128917751616 Watching for file changes with StatReloader
+INFO 2025-04-28 15:37:31,284 autoreload 30454 134118338635584 Watching for file changes with StatReloader
+INFO 2025-04-28 15:38:11,249 autoreload 30594 124254422017856 Watching for file changes with StatReloader
+INFO 2025-04-28 15:38:33,227 autoreload 30786 129981377611584 Watching for file changes with StatReloader
+INFO 2025-04-28 15:38:41,194 basehttp 30786 129978648753856 "GET / HTTP/1.1" 200 5299
+WARNING 2025-04-28 15:38:41,338 log 30786 129978648753856 Not Found: /favicon.ico
+WARNING 2025-04-28 15:38:41,339 basehttp 30786 129978648753856 "GET /favicon.ico HTTP/1.1" 404 7100
+INFO 2025-04-28 15:39:38,228 basehttp 30786 129978648753856 "GET /system-config/ HTTP/1.1" 200 6882
+INFO 2025-04-28 15:39:48,463 views 30786 129978648753856 Updating system config: min_confidence_threshold = 70
+INFO 2025-04-28 15:39:48,468 models 30786 129978648753856 Updated existing config: min_confidence_threshold=70
+INFO 2025-04-28 15:39:48,469 models 30786 129978648753856 Verification successful for min_confidence_threshold
+INFO 2025-04-28 15:39:48,471 views 30786 129978648753856 Successfully saved config min_confidence_threshold = 70
+INFO 2025-04-28 15:39:48,471 views 30786 129978648753856 Updating system config: auto_suggest_labels = false
+INFO 2025-04-28 15:39:48,475 models 30786 129978648753856 Updated existing config: auto_suggest_labels=false
+INFO 2025-04-28 15:39:48,476 models 30786 129978648753856 Verification successful for auto_suggest_labels
+INFO 2025-04-28 15:39:48,477 views 30786 129978648753856 Successfully saved config auto_suggest_labels = false
+INFO 2025-04-28 15:39:48,477 views 30786 129978648753856 Updating system config: training_epochs = 10
+INFO 2025-04-28 15:39:48,481 models 30786 129978648753856 Updated existing config: training_epochs=10
+INFO 2025-04-28 15:39:48,482 models 30786 129978648753856 Verification successful for training_epochs
+INFO 2025-04-28 15:39:48,482 views 30786 129978648753856 Successfully saved config training_epochs = 10
+INFO 2025-04-28 15:39:48,482 views 30786 129978648753856 Updating system config: batch_size = 10
+INFO 2025-04-28 15:39:48,486 models 30786 129978648753856 Updated existing config: batch_size=10
+INFO 2025-04-28 15:39:48,487 models 30786 129978648753856 Verification successful for batch_size
+INFO 2025-04-28 15:39:48,487 views 30786 129978648753856 Successfully saved config batch_size = 10
+INFO 2025-04-28 15:39:48,487 views 30786 129978648753856 Updating system config: use_gpu = auto
+INFO 2025-04-28 15:39:48,491 models 30786 129978648753856 Updated existing config: use_gpu=auto
+INFO 2025-04-28 15:39:48,493 models 30786 129978648753856 Verification successful for use_gpu
+INFO 2025-04-28 15:39:48,493 views 30786 129978648753856 Successfully saved config use_gpu = auto
+INFO 2025-04-28 15:39:48,495 basehttp 30786 129978648753856 "POST /system-config/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:39:48,506 basehttp 30786 129978648753856 "GET /system-config/ HTTP/1.1" 200 7121
+INFO 2025-04-28 15:40:09,721 basehttp 30786 129978648753856 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:40:11,513 basehttp 30786 129978648753856 "GET /training-jobs/ HTTP/1.1" 200 6966
+INFO 2025-04-28 15:40:13,826 basehttp 30786 129978648753856 "GET /training-jobs/4/ HTTP/1.1" 200 5389
+INFO 2025-04-28 15:40:22,093 basehttp 30786 129978648753856 "GET /categories/ HTTP/1.1" 200 4414
+INFO 2025-04-28 15:40:24,130 basehttp 30786 129978648753856 "GET /images/ HTTP/1.1" 200 16525
+INFO 2025-04-28 15:40:24,180 basehttp 30786 129978648753856 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 200 4354
+INFO 2025-04-28 15:40:24,182 basehttp 30786 129978621478592 "GET /media/uploads/4628e5eb-6bc0-4161-bdfe-30c311090fd9.jpeg HTTP/1.1" 200 5149
+INFO 2025-04-28 15:40:24,182 basehttp 30786 129978613085888 "GET /media/uploads/08ce1691-7a1c-4a17-9ec4-ee584f6208c3.jpeg HTTP/1.1" 200 4903
+INFO 2025-04-28 15:40:24,182 basehttp 30786 129978629871296 "GET /media/uploads/aae934b1-2a7b-443d-a622-bf2fc7ee6398.jpeg HTTP/1.1" 200 5113
+INFO 2025-04-28 15:40:24,184 basehttp 30786 129978638264000 "GET /media/uploads/4b1a59f5-78f2-44c7-b82e-57dc282ae932.jpeg HTTP/1.1" 200 4354
+INFO 2025-04-28 15:40:24,188 basehttp 30786 129978604693184 "GET /media/uploads/6ecff906-d797-433c-8fb7-db31cc8a6b09.jpeg HTTP/1.1" 200 4559
+INFO 2025-04-28 15:40:24,189 basehttp 30786 129978629871296 "GET /media/uploads/366a3402-ccb8-4bb0-a2de-5554d05c9df4.jpeg HTTP/1.1" 200 3553
+INFO 2025-04-28 15:40:24,189 basehttp 30786 129978613085888 "GET /media/uploads/7bf9553b-d95c-40bc-ba43-32d88f775cc8.jpeg HTTP/1.1" 200 5488
+INFO 2025-04-28 15:40:24,190 basehttp 30786 129978638264000 "GET /media/uploads/90eb941f-c251-4003-976b-d475d4c03d04.jpeg HTTP/1.1" 200 3606
+INFO 2025-04-28 15:40:24,191 basehttp 30786 129978621478592 "GET /media/uploads/d8abd2ab-ab32-41db-bba5-0301aa1c7654.jpeg HTTP/1.1" 200 3502
+INFO 2025-04-28 15:40:24,192 basehttp 30786 129978604693184 "GET /media/uploads/e7139dc7-1f6f-41b3-889f-929ca0620e03.jpeg HTTP/1.1" 200 110701
+INFO 2025-04-28 15:40:28,106 basehttp 30786 129978604693184 "GET / HTTP/1.1" 200 5299
+INFO 2025-04-28 15:40:38,022 basehttp 30786 129978604693184 "GET /system-config/ HTTP/1.1" 200 6883
+INFO 2025-04-28 15:40:51,473 basehttp 30786 129978604693184 "GET /training-jobs/ HTTP/1.1" 200 6966
+INFO 2025-04-28 15:40:57,021 basehttp 30786 129978604693184 "GET /training-jobs/create/ HTTP/1.1" 200 4664
+INFO 2025-04-28 15:41:05,461 basehttp 30786 129978604693184 "POST /training-jobs/create/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:41:05,474 basehttp 30786 129978604693184 "GET /training-jobs/ HTTP/1.1" 200 8238
+INFO 2025-04-28 15:41:24,875 basehttp 30786 129978604693184 "GET /training-jobs/5/ HTTP/1.1" 200 5389
+INFO 2025-04-28 15:41:28,577 views 30786 129978604693184 Starting training job with ID 5
+INFO 2025-04-28 15:41:28,581 views 30786 129978604693184 Found training job: 4th try (status: pending)
+INFO 2025-04-28 15:41:28,583 views 30786 129978604693184 Found 0 labeled images
+WARNING 2025-04-28 15:41:28,584 views 30786 129978604693184 Not enough labeled images: 0 < 10
+INFO 2025-04-28 15:41:28,584 basehttp 30786 129978604693184 "GET /training-jobs/5/start/ HTTP/1.1" 302 0
+INFO 2025-04-28 15:41:28,602 basehttp 30786 129978604693184 "GET /training-jobs/5/ HTTP/1.1" 200 5665
+INFO 2025-05-01 06:39:05,689 autoreload 8821 139217790904128 Watching for file changes with StatReloader
+INFO 2025-05-01 06:39:36,013 basehttp 8821 139215061907136 "GET / HTTP/1.1" 200 5299
+WARNING 2025-05-01 06:39:36,785 log 8821 139215061907136 Not Found: /favicon.ico
+INFO 2025-05-01 06:39:55,499 basehttp 8821 139215061907136 "GET /system-config/ HTTP/1.1" 200 6883
+INFO 2025-05-01 06:43:28,937 basehttp 8821 139215061907136 "GET / HTTP/1.1" 200 5299
+INFO 2025-05-01 06:43:32,373 basehttp 8821 139215061907136 "GET /images/ HTTP/1.1" 200 16525
+INFO 2025-05-01 06:43:32,413 basehttp 8821 139215061907136 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,417 basehttp 8821 139215051417280 "GET /media/uploads/4b1a59f5-78f2-44c7-b82e-57dc282ae932.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,418 basehttp 8821 139215043024576 "GET /media/uploads/aae934b1-2a7b-443d-a622-bf2fc7ee6398.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,425 basehttp 8821 139215026239168 "GET /media/uploads/08ce1691-7a1c-4a17-9ec4-ee584f6208c3.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,425 basehttp 8821 139215034631872 "GET /media/uploads/4628e5eb-6bc0-4161-bdfe-30c311090fd9.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,427 basehttp 8821 139215043024576 "GET /media/uploads/d8abd2ab-ab32-41db-bba5-0301aa1c7654.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,428 basehttp 8821 139215017846464 "GET /media/uploads/6ecff906-d797-433c-8fb7-db31cc8a6b09.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,444 basehttp 8821 139215051417280 "GET /media/uploads/90eb941f-c251-4003-976b-d475d4c03d04.jpeg HTTP/1.1" 200 3606
+INFO 2025-05-01 06:43:32,445 basehttp 8821 139215034631872 "GET /media/uploads/366a3402-ccb8-4bb0-a2de-5554d05c9df4.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,446 basehttp 8821 139215017846464 "GET /media/uploads/7bf9553b-d95c-40bc-ba43-32d88f775cc8.jpeg HTTP/1.1" 304 0
+INFO 2025-05-01 06:43:32,447 basehttp 8821 139215026239168 "GET /media/uploads/e7139dc7-1f6f-41b3-889f-929ca0620e03.jpeg HTTP/1.1" 200 110701
+INFO 2025-05-01 06:44:05,045 basehttp 8821 139215026239168 "GET /images/11/label/ HTTP/1.1" 200 4848
+INFO 2025-05-01 06:45:04,665 basehttp 8821 139215026239168 "GET / HTTP/1.1" 200 5299
+INFO 2025-05-01 06:45:12,935 basehttp 8821 139215026239168 "GET /images/ HTTP/1.1" 200 16525
+INFO 2025-05-01 06:46:17,396 basehttp 8821 139215026239168 "GET / HTTP/1.1" 200 5299
+INFO 2025-05-01 06:47:49,750 basehttp 8821 139215026239168 "GET /images/ HTTP/1.1" 200 16525
+INFO 2025-05-01 06:48:28,889 basehttp 8821 139215026239168 "GET /admin/ HTTP/1.1" 200 10027
+INFO 2025-05-01 06:48:28,926 basehttp 8821 139215026239168 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:28,927 basehttp 8821 139215061907136 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:28,928 basehttp 8821 139215043024576 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:28,939 basehttp 8821 139215061907136 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:28,940 basehttp 8821 139215043024576 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:28,941 basehttp 8821 139215034631872 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:28,941 basehttp 8821 139215017846464 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:29,010 basehttp 8821 139215026239168 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-05-01 06:48:29,010 basehttp 8821 139215034631872 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-05-01 06:48:36,461 basehttp 8821 139215026239168 "GET /admin/image_classifier/image/ HTTP/1.1" 200 19700
+INFO 2025-05-01 06:48:36,518 basehttp 8821 139215051417280 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,518 basehttp 8821 139215026239168 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-05-01 06:48:36,518 basehttp 8821 139215061907136 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,519 basehttp 8821 139215034631872 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,519 basehttp 8821 139215043024576 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,520 basehttp 8821 139215051417280 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,521 basehttp 8821 139215026239168 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,521 basehttp 8821 139215061907136 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,524 basehttp 8821 139215034631872 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,524 basehttp 8821 139215043024576 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,528 basehttp 8821 139215017846464 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-01 06:48:36,530 basehttp 8821 139215017846464 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-05-01 06:48:36,606 basehttp 8821 139215026239168 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-05-01 06:48:36,709 basehttp 8821 139215026239168 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-05-01 07:04:34,411 autoreload 8821 139217790904128 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-05-01 07:04:35,742 autoreload 11844 140602588194624 Watching for file changes with StatReloader
+INFO 2025-05-01 07:04:46,511 autoreload 11844 140602588194624 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO 2025-05-01 07:04:47,594 autoreload 11904 128865326167872 Watching for file changes with StatReloader
+INFO 2025-05-01 07:05:19,560 autoreload 12474 123621867226944 Watching for file changes with StatReloader
+INFO 2025-05-01 07:05:23,955 basehttp 12474 123619137025728 "GET / HTTP/1.1" 200 5300
+INFO 2025-05-01 07:05:36,558 basehttp 12474 123619137025728 "GET /training-jobs/ HTTP/1.1" 200 8001
+INFO 2025-05-01 07:05:42,768 basehttp 12474 123619137025728 "GET /training-jobs/create/ HTTP/1.1" 200 4664
+INFO 2025-05-01 07:05:50,918 basehttp 12474 123619137025728 "POST /training-jobs/create/ HTTP/1.1" 302 0
+INFO 2025-05-01 07:05:50,935 basehttp 12474 123619137025728 "GET /training-jobs/ HTTP/1.1" 200 9269
+INFO 2025-05-01 07:05:54,219 basehttp 12474 123619137025728 "GET /training-jobs/6/ HTTP/1.1" 200 5375
+INFO 2025-05-01 07:06:01,418 views 12474 123619137025728 Starting training job with ID 6
+INFO 2025-05-01 07:06:01,421 views 12474 123619137025728 Found training job: 5th (status: pending)
+INFO 2025-05-01 07:06:01,423 views 12474 123619137025728 Found 0 labeled images
+WARNING 2025-05-01 07:06:01,424 views 12474 123619137025728 Not enough labeled images: 0 < 10
+INFO 2025-05-01 07:06:01,425 basehttp 12474 123619137025728 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO 2025-05-01 07:06:01,443 basehttp 12474 123619137025728 "GET /training-jobs/6/ HTTP/1.1" 200 5651
+INFO 2025-05-01 07:16:07,349 autoreload 12474 123621867226944 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/pcsAPEX/settings.py changed, reloading.
+INFO django.utils.autoreload autoreload 12839 125720142706496 Watching for file changes with StatReloader
+INFO image_classifier.views views 12839 125717412050624 Starting training job with ID 6
+INFO image_classifier.views views 12839 125717412050624 Found training job: 5th (status: pending)
+INFO image_classifier.views views 12839 125717412050624 Found 0 labeled images
+WARNING image_classifier.views views 12839 125717412050624 Not enough labeled images: 0 < 10
+INFO django.server basehttp 12839 125717412050624 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO django.server basehttp 12839 125717412050624 "GET /training-jobs/6/ HTTP/1.1" 200 5651
+INFO django.server basehttp 12839 125717412050624 "GET / HTTP/1.1" 200 5300
+INFO django.utils.autoreload autoreload 13106 129753821443904 Watching for file changes with StatReloader
+INFO django.server basehttp 13106 129751113004736 "GET /images/ HTTP/1.1" 200 16525
+INFO django.server basehttp 13106 129751029118656 "GET /admin/ HTTP/1.1" 302 0
+INFO django.utils.autoreload autoreload 13106 129753821443904 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO django.utils.autoreload autoreload 13566 123244472395584 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 13566 123244472395584 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/models.py changed, reloading.
+INFO django.utils.autoreload autoreload 13706 140540378670912 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 13706 140540378670912 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO django.utils.autoreload autoreload 13810 127595164383040 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 14070 133912098862912 Watching for file changes with StatReloader
+INFO django.server basehttp 14070 133909369059008 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 14070 133909369059008 "GET /training-jobs/ HTTP/1.1" 200 9032
+INFO django.server basehttp 14070 133909369059008 "GET /training-jobs/6/ HTTP/1.1" 200 5375
+INFO image_classifier.views views 14070 133909369059008 Starting training job with ID 6
+INFO image_classifier.views views 14070 133909369059008 Found training job: 5th (status: pending)
+INFO image_classifier.views views 14070 133909369059008 Found 0 labeled images out of 11 total images
+ERROR django.request log 14070 133909369059008 Internal Server Error: /training-jobs/6/start/
+Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py", line 356, in start_training
+    logger.info(f"Image statuses: {dict(all_images.values_list('status').annotate(count=Count('id')))}")
+NameError: name 'Count' is not defined
+ERROR django.server basehttp 14070 133909369059008 "GET /training-jobs/6/start/ HTTP/1.1" 500 71149
+INFO django.utils.autoreload autoreload 14521 135713525229376 Watching for file changes with StatReloader
+INFO django.server basehttp 14521 135710794315456 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 14521 135710794315456 "GET /training-jobs/ HTTP/1.1" 200 9032
+INFO image_classifier.views views 14521 135710794315456 Starting training job with ID 6
+INFO image_classifier.views views 14521 135710794315456 Found training job: 5th (status: pending)
+INFO image_classifier.views views 14521 135710794315456 Image statistics: {'total': 11, 'status_counts': {'training': 10, 'uploaded': 1}}
+INFO image_classifier.views views 14521 135710794315456 Found 0 labeled images out of 11 total images
+ERROR django.request log 14521 135710794315456 Internal Server Error: /training-jobs/6/start/
+Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py", line 360, in start_training
+    logger.info(f"Image statuses: {dict(all_images.values_list('status').annotate(count=Count('id')))}")
+NameError: name 'Count' is not defined
+ERROR django.server basehttp 14521 135710794315456 "GET /training-jobs/6/start/ HTTP/1.1" 500 71357
+INFO django.utils.autoreload autoreload 14962 124036258359104 Watching for file changes with StatReloader
+INFO django.server basehttp 14962 124033529018048 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 14962 124033529018048 "GET /training-jobs/ HTTP/1.1" 200 9032
+INFO image_classifier.views views 14962 124033529018048 Starting training job with ID 6
+INFO image_classifier.views views 14962 124033529018048 Found training job: 5th (status: pending)
+INFO image_classifier.views views 14962 124033529018048 Image statistics: {'total': 11, 'status_counts': {'training': 10, 'uploaded': 1}}
+INFO image_classifier.views views 14962 124033529018048 Found 0 labeled images out of 11 total images
+INFO image_classifier.views views 14962 124033529018048 Image statuses: {'training': 10, 'uploaded': 1}
+WARNING image_classifier.views views 14962 124033529018048 Not enough labeled images: 0 < 10
+INFO django.server basehttp 14962 124033529018048 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO django.server basehttp 14962 124033529018048 "GET /training-jobs/6/ HTTP/1.1" 200 5651
+INFO image_classifier.views views 14962 124033529018048 Starting training job with ID 6
+INFO image_classifier.views views 14962 124033529018048 Found training job: 5th (status: pending)
+INFO image_classifier.views views 14962 124033529018048 Image statistics: {'total': 11, 'status_counts': {'training': 10, 'uploaded': 1}}
+INFO image_classifier.views views 14962 124033529018048 Found 0 labeled images out of 11 total images
+INFO image_classifier.views views 14962 124033529018048 Image statuses: {'training': 10, 'uploaded': 1}
+WARNING image_classifier.views views 14962 124033529018048 Not enough labeled images: 0 < 10
+INFO django.server basehttp 14962 124033529018048 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO django.server basehttp 14962 124033529018048 "GET /training-jobs/6/ HTTP/1.1" 200 5651
+INFO django.utils.autoreload autoreload 6688 134657848198976 Watching for file changes with StatReloader
+INFO django.server basehttp 6688 134655118407360 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 6688 134655118407360 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 6688 134655118407360 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 6688 134655118407360 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 6688 134655118407360 "GET /images/ HTTP/1.1" 200 16617
+INFO django.server basehttp 6688 134655118407360 "GET /categories/ HTTP/1.1" 200 4414
+INFO django.server basehttp 6688 134655118407360 "GET /training-jobs/ HTTP/1.1" 200 9032
+INFO image_classifier.views views 6688 134655118407360 Starting training job with ID 6
+INFO image_classifier.views views 6688 134655118407360 Found training job: 5th (status: pending)
+INFO image_classifier.views views 6688 134655118407360 Image statistics: {'total': 11, 'status_counts': {'training': 10, 'uploaded': 1}}
+INFO image_classifier.views views 6688 134655118407360 Found 0 labeled images out of 11 total images
+INFO image_classifier.views views 6688 134655118407360 Image statuses: {'training': 10, 'uploaded': 1}
+WARNING image_classifier.views views 6688 134655118407360 Not enough labeled images: 0 < 10
+INFO django.server basehttp 6688 134655118407360 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO django.server basehttp 6688 134655118407360 "GET /training-jobs/6/ HTTP/1.1" 200 5651
+INFO image_classifier.views views 6688 134655118407360 Starting training job with ID 6
+INFO image_classifier.views views 6688 134655118407360 Found training job: 5th (status: pending)
+INFO image_classifier.views views 6688 134655118407360 Image statistics: {'total': 11, 'status_counts': {'training': 10, 'uploaded': 1}}
+INFO image_classifier.views views 6688 134655118407360 Found 0 labeled images out of 11 total images
+INFO image_classifier.views views 6688 134655118407360 Image statuses: {'training': 10, 'uploaded': 1}
+WARNING image_classifier.views views 6688 134655118407360 Not enough labeled images: 0 < 10
+INFO django.server basehttp 6688 134655118407360 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO django.server basehttp 6688 134655118407360 "GET /training-jobs/6/ HTTP/1.1" 200 5651
+INFO django.utils.autoreload autoreload 6688 134657848198976 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/services.py changed, reloading.
+INFO django.utils.autoreload autoreload 8242 138050243749696 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 8242 138050243749696 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/services.py changed, reloading.
+INFO django.utils.autoreload autoreload 8392 139430572218176 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 8392 139430572218176 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/views.py changed, reloading.
+INFO django.utils.autoreload autoreload 8482 126567880677184 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 8482 126567880677184 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 8624 137659940009792 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 8624 137659940009792 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 8750 125772104189760 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 8750 125772104189760 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9023 133414368708416 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 9023 133414368708416 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9117 128913041999680 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 9297 123258466236224 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 9297 123258466236224 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9530 132711886354240 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 9530 132711886354240 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9761 126728193537856 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 10945 128546531768128 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 6657 125324303370048 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 7008 128828657235776 Watching for file changes with StatReloader
+INFO django.utils.autoreload autoreload 7008 128828657235776 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 7126 139530970933056 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 7126 139530970933056 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 7126 139530970933056 No GPUs detected, using CPU
+INFO django.server basehttp 7126 139528140347072 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 7126 139528140347072 "GET /training-jobs/ HTTP/1.1" 200 9032
+INFO image_classifier.views views 7126 139528140347072 Starting training job with ID 6
+INFO image_classifier.views views 7126 139528140347072 Found training job: 5th (status: pending)
+INFO image_classifier.views views 7126 139528140347072 Image statistics: {'total': 11, 'status_counts': {'training': 10, 'uploaded': 1}}
+INFO image_classifier.services services 7126 139528140347072 Reset 10 images from 'training' to 'labeled' status
+INFO image_classifier.views views 7126 139528140347072 Reset 10 images from 'training' to 'labeled' status
+INFO image_classifier.views views 7126 139528140347072 Updated image statistics after reset: {'total': 11, 'status_counts': {'labeled': 10, 'uploaded': 1}}
+INFO image_classifier.views views 7126 139528140347072 Found 10 labeled images out of 11 total images
+INFO image_classifier.views views 7126 139528140347072 Image statuses: {'labeled': 10, 'uploaded': 1}
+INFO image_classifier.views views 7126 139528140347072 Found 2 distinct categories
+INFO image_classifier.views views 7126 139528140347072 GPU availability check: False, No GPU devices found. Training will use CPU only (slower).
+INFO image_classifier.views views 7126 139528140347072 Updated job status to 'in_progress'
+INFO image_classifier.views views 7126 139528140347072 Creating background thread for job 6
+INFO image_classifier.views views 7126 139528129857216 Background thread started for job 6
+INFO image_classifier.views views 7126 139528140347072 Background thread started for job 6
+INFO django.server basehttp 7126 139528140347072 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO image_classifier.views views 7126 139528129857216 Calling train_model for job 6
+INFO django.server basehttp 7126 139528140347072 "GET /training-jobs/6/ HTTP/1.1" 200 6789
+INFO image_classifier.services services 7126 139528129857216 Reset 10 specific images from 'training' to 'labeled' status
+INFO image_classifier.views views 7126 139528129857216 train_model returned: {'success': False, 'error': "Error during model training: name 'labeled_images' is not defined"}
+ERROR image_classifier.views views 7126 139528129857216 Training failed: Error during model training: name 'labeled_images' is not defined
+INFO image_classifier.views views 7126 139528129857216 Updated job status to 'failed'
+INFO django.server basehttp 7126 139528140347072 "GET /training-jobs/6/ HTTP/1.1" 200 5725
+INFO django.utils.autoreload autoreload 8584 131527938807616 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 8584 131527938807616 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 8584 131527938807616 No GPUs detected, using CPU
+INFO django.server basehttp 8584 131524932265664 "GET /images/ HTTP/1.1" 200 16547
+INFO django.server basehttp 8584 131524932265664 "GET /media/uploads/ce042484-6aa9-4123-8f94-7759ac719c57.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524850611904 "GET /media/uploads/4b1a59f5-78f2-44c7-b82e-57dc282ae932.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524842219200 "GET /media/uploads/aae934b1-2a7b-443d-a622-bf2fc7ee6398.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524833826496 "GET /media/uploads/4628e5eb-6bc0-4161-bdfe-30c311090fd9.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524842219200 "GET /media/uploads/366a3402-ccb8-4bb0-a2de-5554d05c9df4.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524825433792 "GET /media/uploads/08ce1691-7a1c-4a17-9ec4-ee584f6208c3.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524850611904 "GET /media/uploads/d8abd2ab-ab32-41db-bba5-0301aa1c7654.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524833826496 "GET /media/uploads/7bf9553b-d95c-40bc-ba43-32d88f775cc8.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524817041088 "GET /media/uploads/6ecff906-d797-433c-8fb7-db31cc8a6b09.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524825433792 "GET /media/uploads/90eb941f-c251-4003-976b-d475d4c03d04.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524817041088 "GET /media/uploads/e7139dc7-1f6f-41b3-889f-929ca0620e03.jpeg HTTP/1.1" 304 0
+INFO django.server basehttp 8584 131524932265664 "GET /images/ HTTP/1.1" 200 16547
+INFO django.server basehttp 8584 131524932265664 "GET /images/11/label/ HTTP/1.1" 200 4848
+INFO django.server basehttp 8584 131524932265664 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 8584 131524932265664 "GET /images/ HTTP/1.1" 200 16547
+INFO django.utils.autoreload autoreload 8892 129710681728832 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 8892 129710681728832 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 8892 129710681728832 No GPUs detected, using CPU
+INFO django.server basehttp 8892 129707850716864 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/ HTTP/1.1" 200 8860
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/6/ HTTP/1.1" 200 5725
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/6/retrain/ HTTP/1.1" 302 0
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/6/ HTTP/1.1" 200 5650
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/ HTTP/1.1" 200 9032
+INFO image_classifier.views views 8892 129707850716864 Starting training job with ID 6
+INFO image_classifier.views views 8892 129707850716864 Found training job: 5th (status: pending)
+INFO image_classifier.views views 8892 129707850716864 Image statistics: {'total': 11, 'status_counts': {'labeled': 10, 'uploaded': 1}}
+INFO image_classifier.views views 8892 129707850716864 Found 10 labeled images out of 11 total images
+INFO image_classifier.views views 8892 129707850716864 Image statuses: {'labeled': 10, 'uploaded': 1}
+INFO image_classifier.views views 8892 129707850716864 Found 2 distinct categories
+INFO image_classifier.views views 8892 129707850716864 GPU availability check: False, No GPU devices found. Training will use CPU only (slower).
+INFO image_classifier.views views 8892 129707850716864 Updated job status to 'in_progress'
+INFO image_classifier.views views 8892 129707850716864 Creating background thread for job 6
+INFO image_classifier.views views 8892 129707839178432 Background thread started for job 6
+INFO image_classifier.views views 8892 129707850716864 Background thread started for job 6
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO image_classifier.views views 8892 129707839178432 Calling train_model for job 6
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/6/ HTTP/1.1" 200 6606
+INFO image_classifier.services services 8892 129707839178432 Reset 10 specific images from 'training' to 'labeled' status
+INFO image_classifier.views views 8892 129707839178432 train_model returned: {'success': False, 'error': "Error during model training: name 'labeled_images' is not defined"}
+ERROR image_classifier.views views 8892 129707839178432 Training failed: Error during model training: name 'labeled_images' is not defined
+INFO image_classifier.views views 8892 129707839178432 Updated job status to 'failed'
+INFO django.server basehttp 8892 129707850716864 "GET /training-jobs/6/ HTTP/1.1" 200 5725
+INFO django.utils.autoreload autoreload 8892 129710681728832 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9254 138151732762432 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 9254 138151732762432 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 9254 138151732762432 No GPUs detected, using CPU
+INFO django.utils.autoreload autoreload 9254 138151732762432 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9450 140689010038592 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 9450 140689010038592 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 9450 140689010038592 No GPUs detected, using CPU
+INFO django.utils.autoreload autoreload 9450 140689010038592 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9615 131492243568448 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 9615 131492243568448 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 9615 131492243568448 No GPUs detected, using CPU
+INFO django.utils.autoreload autoreload 9615 131492243568448 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9730 131028338612032 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 9730 131028338612032 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 9730 131028338612032 No GPUs detected, using CPU
+INFO django.utils.autoreload autoreload 9730 131028338612032 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 9912 129147182815040 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 9912 129147182815040 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 9912 129147182815040 No GPUs detected, using CPU
+INFO django.utils.autoreload autoreload 10622 123288587495232 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 10622 123288587495232 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 10622 123288587495232 No GPUs detected, using CPU
+INFO django.server basehttp 10622 123285590243008 "GET / HTTP/1.1" 200 5300
+INFO django.server basehttp 10622 123285590243008 "GET /training-jobs/ HTTP/1.1" 200 8860
+INFO django.server basehttp 10622 123285590243008 "GET /training-jobs/6/ HTTP/1.1" 200 5725
+INFO django.server basehttp 10622 123285590243008 "GET /training-jobs/6/retrain/ HTTP/1.1" 302 0
+INFO django.server basehttp 10622 123285590243008 "GET /training-jobs/6/ HTTP/1.1" 200 5650
+INFO image_classifier.views views 10622 123285590243008 Starting training job with ID 6
+INFO image_classifier.views views 10622 123285590243008 Found training job: 5th (status: pending)
+INFO image_classifier.views views 10622 123285590243008 Image statistics: {'total': 11, 'status_counts': {'labeled': 10, 'uploaded': 1}}
+INFO image_classifier.views views 10622 123285590243008 Found 10 labeled images out of 11 total images
+INFO image_classifier.views views 10622 123285590243008 Image statuses: {'labeled': 10, 'uploaded': 1}
+INFO image_classifier.views views 10622 123285590243008 Found 2 distinct categories
+INFO image_classifier.views views 10622 123285590243008 GPU availability check: False, No GPU devices found. Training will use CPU only (slower).
+INFO image_classifier.views views 10622 123285590243008 Updated job status to 'in_progress'
+INFO image_classifier.views views 10622 123285590243008 Creating background thread for job 6
+INFO image_classifier.views views 10622 123285576607424 Background thread started for job 6
+INFO image_classifier.views views 10622 123285590243008 Background thread started for job 6
+INFO django.server basehttp 10622 123285590243008 "GET /training-jobs/6/start/ HTTP/1.1" 302 0
+INFO image_classifier.views views 10622 123285576607424 Calling train_model for job 6
+ERROR django.request log 10622 123285590243008 Internal Server Error: /training-jobs/6/
+Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 327, in render
+    return nodelist.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/lorise/.projects/demo_django/demo_django/.venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'training_progress' not found. 'training_progress' is not a valid view function or pattern name.
+ERROR django.server basehttp 10622 123285590243008 "GET /training-jobs/6/ HTTP/1.1" 500 189551
+WARNING django.request log 10622 123285590243008 Not Found: /favicon.ico
+INFO image_classifier.views views 10622 123285576607424 train_model returned: {'success': True, 'accuracy': 50.0, 'model_path': '/home/lorise/.projects/demo_django/demo_django/pcsAPEX/media/models/model_6.h5', 'encoder_path': '/home/lorise/.projects/demo_django/demo_django/pcsAPEX/media/models/encoder_6.pkl'}
+INFO django.utils.autoreload autoreload 10622 123288587495232 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 11615 137421166462784 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 11615 137421166462784 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 11615 137421166462784 No GPUs detected, using CPU
+INFO django.utils.autoreload autoreload 11615 137421166462784 /home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py changed, reloading.
+INFO django.utils.autoreload autoreload 11946 131459943204672 Watching for file changes with StatReloader
+INFO image_classifier.tf_config tf_config 11946 131459943204672 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 11946 131459943204672 No GPUs detected, using CPU
+INFO image_classifier.tf_config tf_config 11946 131459879528128 No GPUs detected, using CPU

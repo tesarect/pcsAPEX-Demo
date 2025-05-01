@@ -1,0 +1,107 @@
+WARNING image_classifier.ml_utils ml_utils 7126 139528140347072 No GPU devices found by TensorFlow
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Starting training job 6: 5th
+WARNING image_classifier.ml_utils ml_utils 7126 139528129857216 No GPU devices found by TensorFlow
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Disabled GPU devices for this training session
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 GPU check: No GPU devices found. Training will use CPU only (slower).
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Using GPU: False
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Training with epochs: 10, batch size: 10
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Found 10 labeled images
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Found 2 distinct categories
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Starting training with 10 images in 2 categories
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Number of classes: 2
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Data shapes: X=(10, 224, 224, 3), y=(10, 2)
+INFO image_classifier.ml_utils ml_utils 7126 139528129857216 Starting model training...
+ERROR image_classifier.ml_utils ml_utils 7126 139528129857216 Error during model training: name 'config' is not defined
+ERROR image_classifier.ml_utils ml_utils 7126 139528129857216 Error during model training: name 'labeled_images' is not defined
+ERROR image_classifier.ml_utils ml_utils 7126 139528129857216 Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py", line 452, in _execute_training
+    datagen.flow(X, y, batch_size=config['batch_size']),
+NameError: name 'config' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py", line 243, in train_model
+    return _execute_training(job, X, y, label_encoder, training_image_ids)
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py", line 498, in _execute_training
+    labeled_images.update(status='labeled')
+NameError: name 'labeled_images' is not defined
+
+WARNING image_classifier.ml_utils ml_utils 8892 129707850716864 No GPU devices found by TensorFlow
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Starting training job 6: 5th
+WARNING image_classifier.ml_utils ml_utils 8892 129707839178432 No GPU devices found by TensorFlow
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Disabled GPU devices for this training session
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 GPU check: No GPU devices found. Training will use CPU only (slower).
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Using GPU: False
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Training with epochs: 10, batch size: 10
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Found 10 labeled images
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Found 2 distinct categories
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Starting training with 10 images in 2 categories
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Number of classes: 2
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Data shapes: X=(10, 224, 224, 3), y=(10, 2)
+INFO image_classifier.ml_utils ml_utils 8892 129707839178432 Starting model training...
+ERROR image_classifier.ml_utils ml_utils 8892 129707839178432 Error during model training: name 'config' is not defined
+ERROR image_classifier.ml_utils ml_utils 8892 129707839178432 Error during model training: name 'labeled_images' is not defined
+ERROR image_classifier.ml_utils ml_utils 8892 129707839178432 Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py", line 452, in _execute_training
+    datagen.flow(X, y, batch_size=config['batch_size']),
+NameError: name 'config' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py", line 243, in train_model
+    return _execute_training(job, X, y, label_encoder, training_image_ids)
+  File "/home/lorise/.projects/demo_django/demo_django/pcsAPEX/image_classifier/ml_utils.py", line 498, in _execute_training
+    labeled_images.update(status='labeled')
+NameError: name 'labeled_images' is not defined
+
+WARNING image_classifier.ml_utils ml_utils 10622 123285590243008 No GPU devices found by TensorFlow
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Starting training job 6: 5th
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 5% - Initializing training job
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 10% - Configuring training environment
+WARNING image_classifier.ml_utils ml_utils 10622 123285576607424 No GPU devices found by TensorFlow
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Disabled GPU devices for this training session
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 GPU check: No GPU devices found. Training will use CPU only (slower).
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Using GPU: False
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Training with epochs: 10, batch size: 10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 15% - Validating training data
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Found 10 labeled images
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Found 2 distinct categories
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Starting training with 10 images in 2 categories
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 25% - Preparing training data
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Number of classes: 2
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Data shapes: X=(10, 224, 224, 3), y=(10, 2)
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 35% - Data preparation complete
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 40% - Starting model training
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Training with config: epochs=10, batch_size=10, gpu=False
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 45% - Creating model architecture
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Starting model training...
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 50% - Starting model training
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 50% - Training epoch 1/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 54% - Completed epoch 1/10 - Accuracy: 50.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 54% - Training epoch 2/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 58% - Completed epoch 2/10 - Accuracy: 75.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 58% - Training epoch 3/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 62% - Completed epoch 3/10 - Accuracy: 87.50%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 62% - Training epoch 4/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 66% - Completed epoch 4/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 66% - Training epoch 5/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 70% - Completed epoch 5/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 70% - Training epoch 6/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 74% - Completed epoch 6/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 74% - Training epoch 7/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 78% - Completed epoch 7/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 78% - Training epoch 8/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 82% - Completed epoch 8/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 82% - Training epoch 9/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 86% - Completed epoch 9/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 86% - Training epoch 10/10
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 90% - Completed epoch 10/10 - Accuracy: 100.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Evaluating model...
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 90% - Evaluating model
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 95% - Saving model
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Saving model to /home/lorise/.projects/demo_django/demo_django/pcsAPEX/media/models/model_6.h5
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 98% - Finalizing training job
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Training completed with accuracy: 50.00%
+INFO image_classifier.ml_utils ml_utils 10622 123285576607424 Progress update for job 6: 100% - Training completed with accuracy: 50.00%

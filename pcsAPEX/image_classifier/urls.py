@@ -19,4 +19,5 @@ urlpatterns = [
     path('training-jobs/<int:pk>/delete/', views.delete_job, name='delete_job'),
     path('process-new-images/', views.process_new_images, name='process_new_images'),
     path('system-config/', views.system_config, name='system_config'),
+    path('reset-training-images/', views.reset_training_images, name='reset_training_images'),
 ]

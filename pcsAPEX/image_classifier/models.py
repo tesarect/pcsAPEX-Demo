@@ -41,21 +41,49 @@ class SystemConfig(models.Model):
     @classmethod
     def set_value(cls, key, value, description=None):
         """Set a configuration value"""
-        if isinstance(value, (list, dict)):
-            value = json.dumps(value)
-        elif not isinstance(value, str):
-            value = str(value)
+        import logging
+        logger = logging.getLogger(__name__)
 
-        config, created = cls.objects.update_or_create(
-            key=key,
-            defaults={'value': value}
-        )
+        try:
+            # Convert value to string if needed
+            if isinstance(value, (list, dict)):
+                value = json.dumps(value)
+            elif not isinstance(value, str):
+                value = str(value)
 
-        if description and created:
-            config.description = description
-            config.save()
+            # Try to get existing config
+            try:
+                config = cls.objects.get(key=key)
+                config.value = value
+                if description and not config.description:
+                    config.description = description
+                config.save()
+                logger.info(f"Updated existing config: {key}={value}")
+            except cls.DoesNotExist:
+                # Create new config
+                config = cls.objects.create(
+                    key=key,
+                    value=value,
+                    description=description or ""
+                )
+                logger.info(f"Created new config: {key}={value}")
 
-        return config
+            # Verify the save was successful
+            try:
+                saved_config = cls.objects.get(key=key)
+                if saved_config.value != value:
+                    logger.error(f"Verification failed for {key}: expected {value}, got {saved_config.value}")
+                else:
+                    logger.info(f"Verification successful for {key}")
+            except cls.DoesNotExist:
+                logger.error(f"Verification failed for {key}: config not found after save")
+
+            return config
+        except Exception as e:
+            logger.error(f"Error setting config {key}={value}: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            raise
 
 class Category(models.Model):
     """Model for image categories/labels. Stores the different classes/labels("lentils") for your images
@@ -76,6 +104,11 @@ def image_upload_path(instance, filename):
     filename = f"{uuid.uuid4()}.{ext}"
     return os.path.join('uploads', filename)
 
+class ImageManager(models.Manager):
+    def get_status_counts(self):
+        from django.db.models import Count
+        return dict(self.values_list('status').annotate(count=Count('id')))
+
 class Image(models.Model):
     """Model for storing image data. Stores information about each uploaded image and its classification status"""
     STATUS_CHOICES = [
@@ -92,8 +125,16 @@ class Image(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='images')
     confidence = models.FloatField(null=True, blank=True)  # For prediction confidence
 
+    objects = ImageManager()
+
     def __str__(self):
         return f"{self.original_filename} ({self.status})"
+    
+    def save(self, *args, **kwargs):
+        # Auto-update status when category is assigned
+        if self.category is not None and self.status == 'uploaded':
+            self.status = 'labeled'
+        super().save(*args, **kwargs)
 
 class TrainingJob(models.Model):
     """Model for tracking training jobs. Stores information about each training job, including its status,
@@ -112,6 +153,7 @@ class TrainingJob(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     model_file = models.FileField(upload_to='models/', null=True, blank=True)
     accuracy = models.FloatField(null=True, blank=True)
+    gpu_used = models.BooleanField(default=False, help_text="Whether GPU was used for training")
 
     def __str__(self):
         return f"{self.name} ({self.status})"
